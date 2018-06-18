@@ -123,6 +123,9 @@
                         <li>
                             <a href="<?php echo site_url()?>/TabelAdmin/daftarAdmin" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Admin</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url()?>/TabelUser" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar User</a>
+                        </li>
                     </ul>
                    
                 </nav>

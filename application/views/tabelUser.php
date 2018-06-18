@@ -38,18 +38,17 @@
                         <table class="table table-striped table-bordered" cellspacing="0" id="example" width="100%">
                             <thead>
                                 <tr>
-                                    <td><b>Id Admin</b></td>
+                                    <td><b>Id User</b></td>
                                     <td><b>Username</b></td>
                                     <td><b>Nama</b></td>
                                     <td><b>Alamat</b></td>
                                     <td><b>Telepon</b></td>
                                     <td><b>Email</b></td>
-                                    <td><b>Level</b></td>
                                     <td><b>Aksi</b></td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($daftarAdmin as $key ) { ?>
+                                <?php foreach ($daftarUser as $key ) { ?>
                                     <tr>
                                         <td><?php echo $key->idUserAdmin ?></td>
                                         <td><?php echo $key->username ?></td>
@@ -57,12 +56,9 @@
                                         <td><?php echo $key->alamat ?></td>
                                         <td><?php echo $key->telepon ?></td>
                                         <td><?php echo $key->email ?></td>
-
-                                        <td><?php echo $key->level ?></td>
-                                        
                                         <td>
-                                            <a href="<?php echo site_url()?>/TabelAdmin/update/<?php echo $key->idUserAdmin; ?>"><button class="btn btn-secondary">Update</button></a>
-                                            <a href="<?php echo site_url()?>/TabelAdmin/deleteAdmin/<?php echo $key->idUserAdmin; ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><button class="btn btn-warning">Delete</button></a>
+                                            <a href="<?php echo site_url()?>/TabelUser/update/<?php echo $key->idUserAdmin; ?>"><button class="btn btn-secondary">Update</button></a>
+                                            <a href="<?php echo site_url()?>/TabelUser/deleteUser/<?php echo $key->idUserAdmin; ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><button class="btn btn-warning">Delete</button></a>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -75,9 +71,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                    <h4 class="modal-title">Tambah Admin</h4>
+                    <h4 class="modal-title">Tambah User</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo site_url('tabelAdmin/addAdmin')?>" method="post" enctype="multipart/form-data" role="form">
+                <form class="form-horizontal" action="<?php echo site_url('tabelUser/addUser')?>" method="post" enctype="multipart/form-data" role="form">
                     <div class="modal-body">
                             <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Username</label>
@@ -113,15 +109,6 @@
                                 <label class="col-lg-2 col-sm-2 control-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" name="email" placeholder="email">
-                                </div>
-                            </div>
-                             <div class="form-group">
-                                <label class="col-lg-2 col-sm-2 control-label">level</label>
-                                <div class="col-lg-10">
-                                    <select name="level">
-    <option value="superadmin">Superadmin</option>
-    <option value="admin">Admin</option>
-    </select>
                                 </div>
                             </div>
                         </div>

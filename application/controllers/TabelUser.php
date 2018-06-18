@@ -1,72 +1,51 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TabelAdmin extends CI_Controller {
-     public function __construct()
-  {
-    parent::__construct();
-    if ($this->session->userdata('logged_in')) {
-      $session_data=$this->session->userdata('logged_in');
-      $data['username']=$session_data['username'];
-      $data['level']=$session_data['level'];
-      $current_controller = $this->router->fetch_class();
-      $this->load->library('acl');
-      if(!$this->acl->is_public($current_controller)){
-        if(!$this->acl->is_allowed($current_controller,$data['level'])){
-          //redirect('login/logout','refresh');
-          echo '<script>alert("anda tidak memiliki hak akses")</script>';
-          redirect('homeAdmin','refresh');
-        }
-      }
-    }
-    else{
-
-      redirect('Login','refresh');
-    }
-  }
+class TabelUser extends CI_Controller {
 
 	public function index()
 	{
-		$session_data=$this->session->userdata('logged_in');
-        $data['username'] = $session_data['username'];
-        
-        $this->load->view('header', $data);
-        $this->load->view('tabelAdmin');
-	}
-
-	public function daftarAdmin()
-	{
-		$this->load->model('ModelTabelAdmin');
+		$this->load->model('ModelTabelUser');
         $session_data=$this->session->userdata('logged_in');
         $username['username'] = $session_data['username'];
         $this->load->view('header', $username);
-        $data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
-        $this->load->view('tabelAdmin', $data);
+        $data['daftarUser'] = $this->ModelTabelUser->getAllUser();
+        $this->load->view('tabelUser', $data);
 	}
 
-	public function addAdmin(){
+	public function daftarUser()
+	{
+		$this->load->model('ModelTabelUser');
+        $session_data=$this->session->userdata('logged_in');
+        $username['username'] = $session_data['username'];
+        $this->load->view('header', $username);
+        $data['daftarUser'] = $this->ModelTabelUser->getAllUser();
+        $this->load->view('tabelUser', $data);
+	}
 
-        $this->load->model('ModelTabelAdmin');
-        $this->ModelTabelAdmin->saveAdmin();
+	public function addUser(){
+
+        $this->load->model('ModelTabelUser');
+        $this->ModelTabelUser->saveUser();
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('TabelAdmin/daftarAdmin');
+        redirect('TabelUser/daftarUser');
     }
 
-    public function deleteAdmin($id)
+    public function deleteUser($id)
     {
 
-        $this->load->model('ModelTabelAdmin');
+        $this->load->model('ModelTabelUser');
         // $id = $this->input->post('idAdmin'); 
-        $this->ModelTabelAdmin->deleteAdmin($id);
+        $this->ModelTabelUser->deleteUser($id);
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('TabelAdmin/daftarAdmin', 'refresh');
+        redirect('TabelUser/daftarUser', 'refresh');
     }
 
     public function update($id)
     {
         $this->load->helper('url', 'form');
         $this->load->library('form_validation');
-        $this->load->model('ModelTabelAdmin');
+        $this->load->model('ModelTabelUser');
         $this->form_validation->set_rules('username', 'username', 'trim|required');
         $this->form_validation->set_rules('password', 'password', 'trim|required');
         $this->form_validation->set_rules('nama', 'nama', 'trim|required');
@@ -74,7 +53,7 @@ class TabelAdmin extends CI_Controller {
         $this->form_validation->set_rules('telepon', 'telepon', 'trim|required');
         $this->form_validation->set_rules('email', 'email', 'trim|required');
         
-        $data['userAdmin']=$this->ModelTabelAdmin->getDataAdmin($id);
+        $data['userAdmin']=$this->ModelTabelUser->getDataUser($id);
 
         if ($this->form_validation->run() == FALSE) {
             //$data['userAdmin']=$this->ModelTabelAdmin->getDataAdmin($id);
@@ -82,12 +61,12 @@ class TabelAdmin extends CI_Controller {
             $username['username'] = $session_data['username'];
         
             $this->load->view('header', $username);
-            $this->load->view('updateAdmin', $data);
+            $this->load->view('updateUser', $data);
         } else {
-            $this->ModelTabelAdmin->updateAdmin($id);
+            $this->ModelTabelUser->updateUser($id);
             //$data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('TabelAdmin/daftarAdmin', 'refresh');
+            redirect('TabelUser/daftarUser', 'refresh');
         }   
     }
 
