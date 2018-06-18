@@ -22,7 +22,7 @@
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="<?php echo site_url()?>/Home/daftarFilm" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
+                        <a href="<?php echo site_url()?>/Admin/daftarFilm" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -33,20 +33,20 @@
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div>
-                <?php echo form_open_multipart('TabelFilm/updateFilm/'.$this->uri->segment(3)); ?>
-                <legend><center>Edit Data Film</center></legend>
+                <?php echo form_open_multipart('TabelFilm/createFilm'); ?>
+                <legend><center>Tambah Data Film</center></legend>
                 <?php echo validation_errors(); ?>
                 <div class="form-group">
-                <label for="">Judul Film</label>
-                <input type="text" class="form-control" name="judulFilm" value="<?php echo $daftarFilm[0]->judulFilm ?>" placeholder="judulFilm" >
+                    <label for="">Judul Film</label>
+                    <input type="text" class="form-control" name="judulFilm" value="" placeholder="judulFilm" >
                 </div>
                 <div class="form-group">
-                <label for="">Deskripsi Film</label>
-                <input type="text" class="form-control" name="deskripsiFilm" value="<?php echo $daftarFilm[0]->deskripsiFilm ?>" placeholder="input deskripsiFilm" >
+                    <label for="">Deskripsi</label>
+                    <input type="text" class="form-control" name="deskripsiFilm" value="" placeholder="deskripsiFilm" >
                 </div>
                 <div class="form-group">
-                <label for="">Foto</label>
-                <input type="file" class="form-control" name="foto" value="<?php echo $daftarFilm[0]->foto ?>" placeholder="upload foto" >
+                    <label for="">Foto</label>
+                    <input type="file" class="form-control" name="foto" value="" placeholder="upload foto" >
                 </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>

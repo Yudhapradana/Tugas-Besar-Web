@@ -1,4 +1,9 @@
+<style type="text/css">
+    .card{
+        height: 300px;
+    }
 
+</style>  
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -18,11 +23,11 @@
                         <h3 class="text-themecolor m-b-0 m-t-0">Profile</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item active">Tabel Film</li>
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="<?php echo site_url()?>/Home/createFilm" class="btn pull-right hidden-sm-down btn-success"> Tambah Film</a>
+                        <a href="<?php echo site_url()?>/TabelFilm/createFilm" class="btn pull-right hidden-sm-down btn-success"> Tambah Film</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -43,8 +48,8 @@
                                 <center class="m-t-30"> <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-circle" width="150" />
                                     <h4 class="card-title m-t-10"><?php echo $key->judulFilm ?></h4>
                                     <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="<?php echo site_url()?>/Home/updateFilm/<?php echo $key->noFilm; ?>" class="link"><i class="glyphicon glyphicon-pencil"></i> <font class="font-medium">Update</font></a></div>
-                                        <div class="col-4"><a href="<?php echo site_url()?>/Home/deleteFilm/<?php echo $key->noFilm; ?>" class="link"><i class="glyphicon glyphicon-remove"></i> <font class="font-medium">Delete</font></a></div>
+                                        <div class="col-4"><a href="<?php echo site_url()?>/TabelFilm/updateFilm/<?php echo $key->noFilm; ?>" class="link"><i class="glyphicon glyphicon-pencil"></i> <font class="font-medium">Update</font></a></div>
+                                        <div class="col-4"><a href="<?php echo site_url()?>/TabelFilm/deleteFilm/<?php echo $key->noFilm; ?>" class="link" onclick="return confirm('Are you sure to delete this data permanently?');" ><i class="glyphicon glyphicon-remove"></i> <font class="font-medium">Delete</font></a></div>
                                         
                                     </div>
                                 </center>

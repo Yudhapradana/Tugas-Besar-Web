@@ -85,9 +85,13 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user"> </span><?php echo "$username"; ?></a>
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="<?php echo site_url()?>/Login/logout">Logout</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()?>assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" /><?php   echo $username; ?></a>
+                        <ul class="dropdown-menu">
+                        <li> <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> profil</a></li>
+                        <li><div class="nav-link dropdown-toggle text-muted waves-effect waves-dark"><a href="<?php echo site_url('login/logout')?>" >log out<span class="glyphicon glyphicon-log-out"></span></a></div></li>
+                        </ul>
                         </li>
+
                     </ul>
                 </div>
             </nav>
@@ -105,24 +109,22 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a href="<?php echo site_url()?>/Home" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
+                            <a href="<?php echo site_url()?>/HomeAdmin" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
                         </li>
                         <li>
                             <a href="<?php echo site_url()?>/Home/profil" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url()?>/Home/table" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Basic Table</a>
+                            <a href="<?php echo site_url()?>/TabelStudio" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url()?>/Home/daftarFilm" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Film</a>
+                            <a href="<?php echo site_url()?>/TabelFilm" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Film</a>
                         </li>
                         <li>
                             <a href="<?php echo site_url()?>/TabelAdmin/daftarAdmin" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Admin</a>
                         </li>
                     </ul>
-                    <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn btn-danger"> Upgrade to Pro</a>
-                    </div>
+                   
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
