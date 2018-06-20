@@ -14,13 +14,13 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('password', 'PASSWORD', 'trim|required|callback_cekDb');
 		if ($this->form_validation->run() == FALSE) {
 			
-			$this->load->view('loginView');
+			$this->load->view('login');
 		} else{
 			$session_data=$this->session->userdata('logged_in');
 			$data['username']=$session_data['username'];
 			$data['level']=$session_data['level'];
 			if($data['level']=='user'){
-				redirect('welcome','refresh');
+				redirect('homeUser','refresh');
 			}else{
 				redirect('homeAdmin','refresh');
 			}
