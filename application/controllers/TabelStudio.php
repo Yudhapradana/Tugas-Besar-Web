@@ -7,9 +7,17 @@ class TabelStudio extends CI_Controller {
 	{
 		 $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+
          $this->load->view('header',$data);
         $this->load->view('table-basic');
 	}
+	public function gridDinamis()
+    {
+    	$session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+         $this->load->view('header', $data);
+        $this->load->view('table-basic');
+    }
 
     public function getAllBioskop()
     {
