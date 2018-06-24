@@ -15,7 +15,7 @@ class TabelStudio extends CI_Controller {
         if(!$this->acl->is_allowed($current_controller,$data['level'])){
           //redirect('login/logout','refresh');
           echo '<script>alert("anda tidak memiliki hak akses")</script>';
-          redirect('admin','refresh');
+          redirect('HomeAdmin','refresh');
         }
       }
     }

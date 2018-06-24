@@ -62,6 +62,26 @@ $acl = array(
 		'admin'=> false,
 		'superadmin' => true,
 	),
+	'HomeAdmin' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+	'TabelFilm' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+	'TabelJadwal' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+	'TabelStudio' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+	'TabelUser' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
 
 );
 

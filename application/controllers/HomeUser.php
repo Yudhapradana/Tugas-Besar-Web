@@ -5,7 +5,10 @@ class HomeUser extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('user/index', FALSE);
+			$this->load->model('BioskopModel');
+			$data['comingsoon'] = $this->BioskopModel->getcomingsoon();
+			$data['nowplaying'] = $this->BioskopModel->getnowplaying();
+		$this->load->view('user/index', $data);
 	}
 
 }

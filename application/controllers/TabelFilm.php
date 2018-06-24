@@ -15,7 +15,7 @@ class TabelFilm extends CI_Controller {
         if(!$this->acl->is_allowed($current_controller,$data['level'])){
           //redirect('login/logout','refresh');
           echo '<script>alert("anda tidak memiliki hak akses")</script>';
-          redirect('admin','refresh');
+          redirect('HomeAdmin','refresh');
         }
       }
     }
@@ -114,7 +114,7 @@ class TabelFilm extends CI_Controller {
         $this->load->model('BioskopModel');
         
         $this->form_validation->set_rules('judulFilm', 'judulFilm', 'trim|required|min_length[5]|max_length[100]');
-        $this->form_validation->set_rules('deskripsiFilm', 'deskripsiFilm', 'trim|required|min_length[1]|max_length[100]');
+        $this->form_validation->set_rules('deskripsiFilm', 'deskripsiFilm', 'trim|required|min_length[1]');
         
         if ($this->form_validation->run() == FALSE) {
          $session_data=$this->session->userdata('logged_in');
