@@ -115,7 +115,7 @@
                             <a href="<?php echo site_url()?>/Home/profil" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url()?>/TabelStudio" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>
+                            <a href="<?php echo site_url()?>/TabelStudio/gridDinamis" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>
                         </li>
                         <li>
                             <a href="<?php echo site_url()?>/TabelJadwal" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Jadwal</a>
