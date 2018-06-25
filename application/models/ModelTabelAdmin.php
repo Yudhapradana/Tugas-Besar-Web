@@ -28,8 +28,8 @@ class ModelTabelAdmin extends CI_Model {
     {
     	$password= $this->input->post('password');
 		$md5=md5($password);
-		$level = "admin";
-        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
+		//$level = "admin";
+        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $this->input->post('level'), 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
         $this->db->insert('useradmin', $object);
     }
 
@@ -43,7 +43,7 @@ class ModelTabelAdmin extends CI_Model {
         $password= $this->input->post('password');
 		$md5=md5($password);
 		$level = "admin";
-        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
+        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $this->input->post('level'), 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
         $this->db->where('idUserAdmin', $id);
         $this->db->update('useradmin', $object);
     }
