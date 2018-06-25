@@ -52,19 +52,18 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="menu-has-children"><a href="">Drop Down</a>
+          <li><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
+          <li><a href="#services">Order</a></li>
+          <li><a href="#portfolio">About Us</a></li>
+        <?php   if($this->session->userdata('logged_in')) { ?>
+          <li class="menu-has-children"><a href=""><?php  echo $this->session->userdata('logged_in')['username'] ?></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
-            </ul>
+              <li><a href="#">Profil</a></li>
+              <li><a href="<?php echo site_url()?>/login/logout">Logout</a></li>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <?php   }else{ ?>
+          <li><a href="<?php echo site_url()?>/login">login</a></li>
+          <?php   } ?>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -154,14 +153,146 @@
     </section> --><!-- #featured-services -->
 
     <!--==========================
+      Portfolio Section
+    ============================-->
+    <section id="portfolio"  class="section-bg" >
+      <div class="container">
+
+        <header class="section-header">
+          <h3 class="section-title">Film List</h3>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Now Playing</li>
+              <li data-filter=".filter-card">Coming Soon</li>
+             
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+<?php foreach ($comingsoon as $key ) { ?>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" class="img-fluid" alt="">
+                <a href="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" data-lightbox="portfolio" data-title="<?php echo $key->judulFilm ?>" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#"><?php echo $key->judulFilm ?></a></h4>
+                
+              </div>
+            </div>
+          </div>
+          <?php   
+} ?>
+<?php foreach ($nowplaying as $key ) { ?>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" class="img-fluid" alt="">
+                <a href="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" data-lightbox="portfolio" data-title="<?php echo $key->judulFilm ?>" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#"><?php echo $key->judulFilm ?></a></h4>
+                
+              </div>
+            </div>
+          </div>
+          <?php   
+} ?>
+        </div>
+
+      </div>
+    </section>
+    <section id="team">
+      <div class="container">
+        <div class="section-header wow fadeInUp">
+          <h3>GALLERY</h3>
+         
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <figure>
+               <a href="<?php echo base_url()?>assets/user/img/gallery1.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+                <img src="<?php echo base_url()?>assets/user/img/gallery1.jpg" class="img-fluid" alt="">
+               </a>
+                </figure>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="member">
+               <figure>
+               <a href="<?php echo base_url()?>assets/user/img/gallery2.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+                <img src="<?php echo base_url()?>assets/user/img/gallery2.jpg" class="img-fluid" alt="" >
+               </a>
+                </figure>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="member">
+               <figure>
+               <a href="<?php echo base_url()?>assets/user/img/gallery3.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+                <img src="<?php echo base_url()?>assets/user/img/gallery3.jpg" class="img-fluid" alt="">
+               </a>
+                </figure>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="member">
+                <figure>
+               <a href="<?php echo base_url()?>assets/user/img/gallery4.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+                <img src="<?php echo base_url()?>assets/user/img/gallery4.jpg" class="img-fluid" alt="">
+               </a>
+                </figure>
+            </div>
+          </div>
+
+          <!-- <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="member">
+              <img src="img/team-4.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Amanda Jepson</h4>
+                  <span>Accountant</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        </div>
+
+      </div>
+    </section><!-- #team -->
+
+    <!--==========================
       About Us Section
     ============================-->
     <section id="about">
       <div class="container">
 
         <header class="section-header">
-          <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>ABOUT US</h3>
+          <p>
+IniCinema (dulu dikenal sebagai jaringan Cineplex) merupakan jaringan bioskop yang telah tersebar di Jawa-Bali. Telah berpengalaman bertahun-tahun dalam menyajikan kenyamanan menonton ribuan judul-judul film terbaik Dunia dan Indonesia. Nikmati ketajaman visual dan kenyamanan menonton dengan harga paling kompetitif bersama kami </p>
         </header>
 
         <div class="row about-cols">
@@ -274,188 +405,7 @@
       Skills Section
     ============================-->
    <!-- #facts -->
-
-    <!--==========================
-      Portfolio Section
-    ============================-->
-    <section id="portfolio"  class="section-bg" >
-      <div class="container">
-
-        <header class="section-header">
-          <h3 class="section-title">Film List</h3>
-        </header>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Now Playing</li>
-              <li data-filter=".filter-card">Coming Soon</li>
-             
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-<?php foreach ($comingsoon as $key ) { ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" class="img-fluid" alt="">
-                <a href="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" data-lightbox="portfolio" data-title="<?php echo $key->judulFilm ?>" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#"><?php echo $key->judulFilm ?></a></h4>
-                
-              </div>
-            </div>
-          </div>
-          <?php   
-} ?>
-<?php foreach ($nowplaying as $key ) { ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" class="img-fluid" alt="">
-                <a href="<?php echo base_url()?>assets/upload/<?php echo $key->foto ?>" data-lightbox="portfolio" data-title="<?php echo $key->judulFilm ?>" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#"><?php echo $key->judulFilm ?></a></h4>
-                
-              </div>
-            </div>
-          </div>
-          <?php   
-} ?>
-<!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/web3.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Web 3</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php// echo base_url()?>assets/user/img/portfolio/app2.jpg" class="img-fluid" alt="">
-                <a href="<?php// echo base_url()?>assets/user/img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">App 2</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/card2.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Card 2</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/web2.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Web 2</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/app3.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">App 3</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/card1.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Card 1</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/card3.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Card 3</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="<?php //echo base_url()?>assets/user/img/portfolio/web1.jpg" class="img-fluid" alt="">
-                <a href="<?php //echo base_url()?>assets/user/img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Web 1</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
- -->
-        </div>
-
-      </div>
-    </section><!-- #portfolio -->
+<!-- #portfolio -->
 
     <!--==========================
       Clients Section
@@ -556,92 +506,7 @@
     <!--==========================
       Team Section
     ============================-->
-    <section id="team">
-      <div class="container">
-        <div class="section-header wow fadeInUp">
-          <h3>Team</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp">
-            <div class="member">
-              <img src="<?php echo base_url()?>assets/user/img/team-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="img/team-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="member">
-              <img src="img/team-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="member">
-              <img src="img/team-4.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- #team -->
-
+    
     <!--==========================
       Contact Section
     ============================-->

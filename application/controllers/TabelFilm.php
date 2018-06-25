@@ -62,7 +62,7 @@ class TabelFilm extends CI_Controller {
         $this->load->model('BioskopModel');
         
         $this->form_validation->set_rules('judulFilm', 'judulFilm', 'trim|required|min_length[5]|max_length[100]');
-        $this->form_validation->set_rules('deskripsiFilm', 'deskripsiFilm', 'trim|required|min_length[1]|max_length[100]');
+        $this->form_validation->set_rules('deskripsiFilm', 'deskripsiFilm', 'trim|required|min_length[1]');
 
         $data['daftarFilm']=$this->BioskopModel->getDataFilm($id);
 
