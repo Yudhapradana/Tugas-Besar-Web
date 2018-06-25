@@ -22,7 +22,7 @@
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="<?php echo site_url()?>/Home/daftarFilm" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
+                        <a href="<?php echo site_url()?>/TabelFilm/" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -38,15 +38,23 @@
                 <?php echo validation_errors(); ?>
                 <div class="form-group">
                 <label for="">Judul Film</label>
-                <input type="text" class="form-control" name="judulFilm" value="<?php echo $daftarFilm[0]->judulFilm ?>" placeholder="judulFilm" >
+                <input type="text" class="form-control" name="judulFilm" value="<?php echo $daftarFilm[0]->judulFilm ?>" >
                 </div>
                 <div class="form-group">
                 <label for="">Deskripsi Film</label>
-                <input type="text" class="form-control" name="deskripsiFilm" value="<?php echo $daftarFilm[0]->deskripsiFilm ?>" placeholder="input deskripsiFilm" >
+                <input type="text" class="form-control" name="deskripsiFilm" value="<?php echo $daftarFilm[0]->deskripsiFilm ?>" >
                 </div>
                 <div class="form-group">
                 <label for="">Foto</label>
                 <input type="file" class="form-control" name="foto" value="<?php echo $daftarFilm[0]->foto ?>" placeholder="upload foto" >
+                </div>
+                 <div class="form-group">
+                <label for="">Pemain Film</label>
+                <input type="text" class="form-control" name="pemain" value="<?php echo $daftarFilm[0]->pemain ?>" >
+                </div>
+                 <div class="form-group">
+                <label for="">Sutradara Film</label>
+                <input type="text" class="form-control" name="sutradara" value="<?php echo $daftarFilm[0]->sutradara ?>">
                 </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>
