@@ -118,6 +118,9 @@
                             <a href="<?php echo site_url()?>/TabelStudio/gridDinamis" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>
                         </li>
                         <li>
+                            <a href="<?php echo site_url()?>/TabelJadwal" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Jadwal</a>
+                        </li>
+                        <li>
                             <a href="<?php echo site_url()?>/TabelFilm" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Film</a>
                         </li>
                         <li>

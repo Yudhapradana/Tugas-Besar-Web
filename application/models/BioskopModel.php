@@ -56,6 +56,17 @@ class BioskopModel extends CI_Model {
         }
     }
 
+    public function getnowplaying(){
+        $query = $this->db->query('SELECT * FROM film INNER JOIN jadwalfilm on film.noFilm = jadwalfilm.noFilm ');
+        return $query->result();
+    }
+    public function getcomingsoon(){
+        $query = $this->db->query('SELECT * FROM film
+WHERE noFilm NOT IN (SELECT noFilm FROM jadwalfilm)');
+        return $query->result();
+    }
+    
+
     public function saveFilm()
     {
         $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'),);

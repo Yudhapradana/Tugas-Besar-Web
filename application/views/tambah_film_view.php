@@ -41,8 +41,9 @@
                     <input type="text" class="form-control" name="judulFilm" value="" placeholder="judulFilm" >
                 </div>
                 <div class="form-group">
-                    <label for="">Deskripsi</label>
-                    <input type="text" class="form-control" name="deskripsiFilm" value="" placeholder="deskripsiFilm" >
+                    <label for="">Deskripsi</label><br>
+                    <textarea name="deskripsiFilm" cols="153" rows="5"></textarea>
+               
                 </div>
                 <div class="form-group">
                     <label for="">Foto</label>
