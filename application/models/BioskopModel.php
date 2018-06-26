@@ -56,20 +56,9 @@ class BioskopModel extends CI_Model {
         }
     }
 
-    public function getnowplaying(){
-        $query = $this->db->query('SELECT * FROM film INNER JOIN jadwalfilm on film.noFilm = jadwalfilm.noFilm ');
-        return $query->result();
-    }
-    public function getcomingsoon(){
-        $query = $this->db->query('SELECT * FROM film
-WHERE noFilm NOT IN (SELECT noFilm FROM jadwalfilm)');
-        return $query->result();
-    }
-    
-
     public function saveFilm()
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'),);
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
         $this->db->insert('film', $object);
     }
 
@@ -80,13 +69,13 @@ WHERE noFilm NOT IN (SELECT noFilm FROM jadwalfilm)');
     }
     public function updateFilm($id)
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'),);
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
         $this->db->where('noFilm', $id);
         $this->db->update('film', $object);
     }
      public function updateFilm2($id)
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'));
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
         $this->db->where('noFilm', $id);
         $this->db->update('film', $object);
     }

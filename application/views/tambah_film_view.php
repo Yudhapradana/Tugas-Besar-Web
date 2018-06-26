@@ -22,7 +22,7 @@
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="<?php echo site_url()?>/Admin/daftarFilm" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
+                        <a href="<?php echo site_url()?>/TabelFilm/" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -41,14 +41,25 @@
                     <input type="text" class="form-control" name="judulFilm" value="" placeholder="judulFilm" >
                 </div>
                 <div class="form-group">
-                    <label for="">Deskripsi</label><br>
-                    <textarea name="deskripsiFilm" cols="153" rows="5"></textarea>
-               
+                    <label for="">Deskripsi</label>
+                    <textarea class="form-control" name="deskripsiFilm" value="" placeholder="deskripsiFilm"> </textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Foto</label>
                     <input type="file" class="form-control" name="foto" value="" placeholder="upload foto" >
                 </div>
+                <div class="form-group">
+                    <label for="">Pemain</label>
+                                    
+                                        <input type="text" class="form-control" name="pemain" placeholder="pemain">
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Sutradara</label>
+                                    
+                                        <input type="text" class="form-control" name="sutradara" placeholder="sutradara">
+                                    
+                                </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>
             </div>
