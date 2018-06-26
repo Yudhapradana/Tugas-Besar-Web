@@ -58,7 +58,10 @@ class BioskopModel extends CI_Model {
 
     public function saveFilm()
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
+        $tgl = $this->input->post('releaseDate');
+        $tgl2 = date_format(new DateTime($tgl), "Y-m-d");
+
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'), 'produser' => $this->input->post('produser'), 'genre' => $this->input->post('genre'), 'durasi' => $this->input->post('durasi'), 'releaseDate'=>$tgl2,);
         $this->db->insert('film', $object);
     }
 
@@ -69,13 +72,19 @@ class BioskopModel extends CI_Model {
     }
     public function updateFilm($id)
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
+        $tgl = $this->input->post('releaseDate');
+        $tgl2 = date_format(new DateTime($tgl), "Y-m-d");
+
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'foto' => $this->upload->data('file_name'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'), 'produser' => $this->input->post('produser'), 'genre' => $this->input->post('genre'), 'durasi' => $this->input->post('durasi'), 'releaseDate'=>$tgl2,);
         $this->db->where('noFilm', $id);
         $this->db->update('film', $object);
     }
      public function updateFilm2($id)
     {
-        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'),);
+        $tgl = $this->input->post('releaseDate');
+        $tgl2 = date_format(new DateTime($tgl), "Y-m-d");
+
+        $object = array('judulFilm' => $this->input->post('judulFilm'), 'deskripsiFilm' => $this->input->post('deskripsiFilm'), 'pemain' => $this->input->post('pemain'), 'sutradara' => $this->input->post('sutradara'), 'produser' => $this->input->post('produser'), 'genre' => $this->input->post('genre'), 'durasi' => $this->input->post('durasi'), 'releaseDate'=>$tgl2,);
         $this->db->where('noFilm', $id);
         $this->db->update('film', $object);
     }
