@@ -35,6 +35,16 @@ class TabelFilm extends CI_Controller {
         $this->load->view('daftarFilm', $data);
 	}
 
+  public function getFilm($id)
+  {
+    $this->load->model('BioskopModel');
+    $session_data=$this->session->userdata('logged_in');
+        $data['username']=$session_data['username'];
+         $this->load->view('header',$data);
+        $data['daftarFilm'] = $this->BioskopModel->getDataFilm($id);
+        $this->load->view('detailFilm', $data);
+  }
+
     public function addFilm(){
         $this->load->model('BioskopModel');
         $this->BioskopModel->saveFilm();
