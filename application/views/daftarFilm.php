@@ -45,7 +45,7 @@
                         <div class="card">
                             <div class="card-block">
                                 
-                                <center class="m-t-30"> <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-circle" width="150" />
+                                <center class="m-t-30"><a href="<?php echo site_url()?>/TabelFilm/getFilm/<?php echo $key->noFilm; ?>"> <img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-circle" width="150" /></a>
                                     <h4 class="card-title m-t-10"><?php echo $key->judulFilm ?></h4>
                                     <div class="row text-center justify-content-md-center">
                                         <div class="col-4"><a href="<?php echo site_url()?>/TabelFilm/updateFilm/<?php echo $key->noFilm; ?>" class="link"><i class="glyphicon glyphicon-pencil"></i> <font class="font-medium">Update</font></a></div>
