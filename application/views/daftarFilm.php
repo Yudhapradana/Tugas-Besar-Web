@@ -1,6 +1,6 @@
 <style type="text/css">
     .card{
-        height: 300px;
+        height: 350px;
     }
 
 </style>  
