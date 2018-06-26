@@ -1,17 +1,204 @@
 <style type="text/css">
-    body{
-        padding-top: 120px;
-        padding-left: 70px;
-    }
-    .date{
-      background-color: #383d3a;
-      font-size: 30px;
-      color: white;
 
+ @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+    @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+    body {
+       padding-top: 20px;
+    
+    background-color: rgb(220, 220, 220);
+  }
+  .list {
+    color: #ffffff;
+    transition: 0.5s;
+}
+    
+    .event-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+
+  }
+  .event-list > li {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgb(51, 51, 51);
+    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+    padding: 0px;
+    margin: 0px 0px 20px;
+  }
+  .event-list > li > time {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .event-list > li:nth-child(even) > time {
+    background-color: #17a2b8;
+  }
+  .event-list > li > time > span {
+    display: none;
+  }
+  .event-list > li > time > .day {
+    display: block;
+    font-size: 56pt;
+    font-weight: 100;
+    line-height: 1;
+  }
+  .event-list > li time > .month {
+    display: block;
+    font-size: 18pt;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 20px;
+  }
+  .event-list > li > img {
+    width: 100%;
+  }
+  .event-list > li > .info {
+    padding-top: 5px;
+    text-align: center;
+  }
+  .event-list > li > .info > .title {
+    font-size: 17pt;
+    font-weight: 700;
+    margin: 0px;
+  }
+  .event-list > li > .info > .desc {
+    font-size: 13pt;
+    font-weight: 300;
+    margin: 0px;
+  }
+  .event-list > li > .info > ul,
+  .event-list > li > .social > ul {
+    display: table;
+    list-style: none;
+    margin: 10px 0px 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .event-list > li > .social > ul {
+    margin: 0px;
+  }
+  .event-list > li > .info > ul > li,
+  .event-list > li > .social > ul > li {
+    display: table-cell;
+    cursor: pointer;
+    color: rgb(30, 30, 30);
+    font-size: 11pt;
+    font-weight: 300;
+        padding: 3px 0px;
+  }
+    .event-list > li > .info > ul > li > a {
+    display: block;
+    width: 100%;
+    color: rgb(30, 30, 30);
+    text-decoration: none;
+  } 
+    .event-list > li > .social > ul > li {    
+        padding: 0px;
     }
-    .jadwal{
-      margin-left: -30px;
+    .event-list > li > .social > ul > li > a {
+        padding: 3px 0px;
+  } 
+  .event-list > li > .info > ul > li:hover,
+  .event-list > li > .social > ul > li:hover {
+    color: rgb(30, 30, 30);
+    background-color: rgb(200, 200, 200);
+  }
+  .facebook a,
+  .twitter a,
+  .google-plus a {
+    display: block;
+    width: 100%;
+    color: rgb(75, 110, 168) !important;
+  }
+  .twitter a {
+    color: rgb(79, 213, 248) !important;
+  }
+  .google-plus a {
+    color: rgb(221, 75, 57) !important;
+  }
+  .facebook:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(75, 110, 168) !important;
+  }
+  .twitter:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(79, 213, 248) !important;
+  }
+  .google-plus:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(221, 75, 57) !important;
+  }
+
+  @media (min-width: 768px) {
+    .event-list > li {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 150px;
+      padding: 0px;
     }
+    .event-list > li > time,
+    .event-list > li > img  {
+      display: inline-block;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 150px;
+      float: left;
+    }
+    .event-list > li > .info {
+      background-color: rgb(245, 245, 245);
+      overflow: hidden;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 120px;
+      height: 150px;
+      padding: 0px;
+      margin: 0px;
+    }
+    .event-list > li > .info {
+      position: relative;
+      height: 150px;
+      text-align: left;
+      padding-right: 40px;
+    } 
+    .event-list > li > .info > .title, 
+    .event-list > li > .info > .desc {
+      padding: 0px 10px;
+    }
+    .event-list > li > .info > ul {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+    }
+    .event-list > li > .social {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+      width: 40px;
+    }
+        .event-list > li > .social > ul {
+            border-left: 1px solid rgb(230, 230, 230);
+        }
+    .event-list > li > .social > ul > li {      
+      display: block;
+            padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+      display: block;
+      width: 40px;
+      padding: 10px 0px 9px;
+    }
+  }
+    
 
 </style> 
 <!DOCTYPE html>
@@ -51,7 +238,22 @@
   ======================================================= -->
 </head>
 
-<body style="background-color: #02280f">
+<body>
+<div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding: 90px;  min-height: 100%;
+        min-width: 1024px;
+ 
+        /* scale secara proporsional */
+        width: 100%;
+        height: auto;
+ 
+        /* mengatur posisi */
+        position: fixed;
+        top: 0;
+        left: 0;">
+<div style="background: rgba(0,0,0,.2); color: white; height: 1361px; padding: 50px; text-align: center; width: 1320px;  width: 100%; min-height: 100%;
+        min-width: 1024px; height: auto;  ">
+
+
 
   <!--==========================
     Header
@@ -67,7 +269,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li ><a href="#intro">Home</a></li>
+          <li ><a href="<?php echo site_url()?>/homeUser">Home</a></li>
           <li class="menu-active"><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
           <li><a href="#services">Order</a></li>
           <li><a href="#portfolio">About Us</a></li>
@@ -84,34 +286,46 @@
       </nav><!-- #nav-menu-container -->
     </div>
   </header>
-  <main id="main">
- <div >
+ <div class="container">
+    <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+<?php   foreach ($daftarFilm as $key ) {
+  ?>
+          <li>
+        
+              <time>
+              
+            <span class="month">Studio</span>
+              <span class="day"><a href="#" class="list">20</a></span>
+            </time>
 
-<section>
-<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 date">
-  
+            </a>
+            <img alt="My 24th Birthday!" src="<?php echo base_url()?>/assets/upload/<?php echo $key->foto ?>" />
+            <div class="info">
+              <h2 class="title" style="color: #17a2b8">Black Phanter</h2>
+              <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);">  
+              <p class="desc"  style="color: #17a2b8">HTM : Rp 25000</p>
+              <p class="desc"  style="color: #17a2b8">ACTION | 120 MENIT</p>
+              <ul>
+                <li style="width:33%;">1 <span class="glyphicon glyphicon-ok"></span></li>
+                <li style="width:34%;">3 <span class="fa fa-question"></span></li>
+                <li style="width:33%;">103 <span class="fa fa-envelope"></span></li>
+              </ul>
+            </div>
+            
+          </li>
+          <?php }?>
 
-    <?php  $tgl=date('l, d-m-Y');
-echo $tgl;?>
 
-  </div>
+          
+        </ul>
 
-  <br>
-  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <img class="jadwal" src="<?php echo base_url()?>/assets/user/img/gallery2.jpg" alt="" width="170px" height="220px">
-    </div> 
-    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"> 
-    <p> judul</p>
+      </div>
     </div>
-
   </div>
-
-  
-
-
-
-
+  </div>
+  </div>
 
 
 
