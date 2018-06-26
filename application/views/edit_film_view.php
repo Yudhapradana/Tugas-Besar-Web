@@ -52,9 +52,24 @@
                 <label for="">Pemain Film</label>
                 <input type="text" class="form-control" name="pemain" value="<?php echo $daftarFilm[0]->pemain ?>" >
                 </div>
+                                <div class="form-group">
+                                    <label for="">Produser</label>
+                    <input type="text" class="form-control" name="produser" value="<?php echo $daftarFilm[0]->produser ?>" placeholder="produser" >
+                </div>
                  <div class="form-group">
                 <label for="">Sutradara Film</label>
                 <input type="text" class="form-control" name="sutradara" value="<?php echo $daftarFilm[0]->sutradara ?>">
+                </div>
+                                    <label for="">Genre Film</label>
+                    <input type="text" class="form-control" name="genre" value="<?php echo $daftarFilm[0]->genre ?>" placeholder="genre film" >
+                </div>
+                <div class="form-group">
+                    <label for="">Durasi</label>
+                    <input type="text" class="form-control" name="durasi" value="<?php echo $daftarFilm[0]->durasi ?>" placeholder="durasi" >
+                </div>
+                 <div class="form-group">
+                    <label for="">Release Date</label>
+                    <input type="text" class="form-control" name="releaseDate" value="<?php echo $daftarFilm[0]->releaseDate ?>" placeholder="release Date" >
                 </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>
