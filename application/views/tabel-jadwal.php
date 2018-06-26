@@ -22,7 +22,9 @@
                             <li class="breadcrumb-item active">Table</li>
                         </ol>
                     </div>
-                   
+                    <div class="col-md-6 col-4 align-self-center">
+                        <a data-toggle="modal" data-target="#myModal"><button  class="btn pull-right hidden-sm-down btn-success">Tambah</button></a>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -35,22 +37,17 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-block">
-                                <h4 class="card-title">Basic Table</h4>
-                                <h6 class="card-subtitle">Add class <code>.table</code></h6>
-                                <div align="right">
-                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="#">Tambah</button>
-                                </div>
-                                <div>
-                                    <table class="table table-hover" id="example">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered" cellspacing="0" id="example" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Id Jadwal</th>
-                                                <th>Film</th>
-                                                <th>Studio</th>
-                                                <th>Tanggal</th>
-                                                <th>Jam</th>
-                                                <th>Harga</th>
-                                                <th colspan="2">Aksi</th>
+                                                <td><b>Id Jadwal</b></td>
+                                                <td><b>Film</b></td>
+                                                <td><b>Studio</b></td>
+                                                <td><b>Tanggal</b></td>
+                                                <td><b>Jam</b></td>
+                                                <td><b>Harga</b></td>
+                                                <td colspan="2"><b>Aksi</b></td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -211,7 +208,15 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url()?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    
+    <script src="<?php echo base_url();?>assets/datatables/jquery-2.2.4.js"></script>
+        <script src="<?php echo base_url();?>assets/datatables/jquery-2.2.4.min.js"></script>
+        <script src="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.js"></script>      
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.css">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#example').DataTable();
+            });
+        </script>
 
 
      <script>
