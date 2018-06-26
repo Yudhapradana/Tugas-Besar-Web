@@ -54,12 +54,28 @@
                                         <input type="text" class="form-control" name="pemain" placeholder="pemain">
                                     
                                 </div>
+                                                <div class="form-group">
+                                    <label for="">Produser</label>
+                    <input type="text" class="form-control" name="produser" value="" placeholder="produser" >
+                </div>
                                 <div class="form-group">
                                     <label for="">Sutradara</label>
                                     
                                         <input type="text" class="form-control" name="sutradara" placeholder="sutradara">
                                     
                                 </div>
+                                <div class="form-group">
+                    <label for="">Genre Film</label>
+                    <input type="text" class="form-control" name="genre" value="" placeholder="genre film" >
+                </div>
+                <div class="form-group">
+                    <label for="">Durasi</label>
+                    <input type="text" class="form-control" name="durasi" value="" placeholder="durasi" >
+                </div>
+                <div class="form-group">
+                    <label for="">Release Date</label>
+                    <input type="text" class="form-control" name="releaseDate" value="" placeholder="00-00-0000" >
+                </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>
             </div>
