@@ -11,6 +11,32 @@
     color: #ffffff;
     transition: 0.5s;
 }
+::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+::-webkit-scrollbar-track {      
+    background: #666;    
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #232323;
+}
+hr{
+  color: white;
+}
+.scroll{
+  padding-right: 20px;
+   overflow-y: scroll;
+  height: 150px;
+   overflow-x: hidden;
+
+}
+td{
+  color: white;
+  height: 40px;
+  border-top: 2px;
+}
     
     .event-list {
     list-style: none;
@@ -247,32 +273,13 @@
 </head>
 
 <body>
-<div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding: 90px;  min-height: 100%;
-        min-width: 1024px;
- 
-        /* scale secara proporsional */
-        width: 100%;
-        height: auto;
- 
-        /* mengatur posisi */
-        position: fixed;
-        top: 0;
-        left: 0;">
+<div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding: 90px;  min-height: 100%; min-width: 1024px; width: 100%; height: auto;top: 0;left: 0;">
 <div style="background: rgba(0,0,0,.2); color: white; height: 1361px; padding: 50px; text-align: center; width: 1320px;  width: 100%; min-height: 100%;
         min-width: 1024px; height: auto;  ">
-
-
-
-  <!--==========================
-    Header
-  ============================-->
   <header id="header">
     <div class="container-fluid">
-
       <div id="logo" class="pull-left">
         <h1><a href="#intro" class="scrollto">IniCinema</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
       <nav id="nav-menu-container">
@@ -297,33 +304,26 @@
  <div class="container">
     <div class="row">
       <div class="[ col-xs-6 col-sm-offset-1 col-sm-8 ]">
-        <ul class="event-list">
-<?php   foreach ($daftarFilm as $key ) {
-  ?>
-          <li>
-        
-              <time>
-              
-            <span class="month">Studio</span>
-              <span class="day"><a href="<?php echo site_url()?>/jadwal/studio/<?php echo $key->idStudio?>" class="list"><?php echo $key->namaStudio ?></a></span>
-            </time>
-
-            </a>
-            <img alt="My 24th Birthday!" src="<?php echo base_url()?>/assets/upload/<?php echo $key->foto ?>" />
-            <div class="info">
-              <h2 class="title" style="color: #17a2b8"><?php echo $key->judulFilm ?></h2>
-              <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);">  
-              <p class="desc"  style="color: #17a2b8">HTM : Rp <?php echo $key->harga ?> </p>
-              <p class="desc"  style="color: #17a2b8"><?php echo $key->genre?> | <?php echo $key->durasi ?> MENIT</p><br>
-               &nbsp;&nbsp;<button type="button" class="btn btn-primary " style="border-radius: 0;">Cek Jam Tayang</button>
-            </div>
-            
-          </li>
-          <?php }?>
-
-
+        <div class="row">
+          <div class="col-md-3">
+            <img src="<?php echo base_url()?>assets/upload/<?php echo  $daftarFilm[0]->foto ?>" alt="" width="200px" height="250px">
+          </div>
+          <div class="col-md-9" style="padding-left: 48px;">
+            <h2 align="left"><?php echo $daftarFilm[0]->judulFilm?> </h2>
+            <p align="left"> <?php echo $daftarFilm[0]->genre?></p>
+            <div align="left" class="scroll"> <?php echo $daftarFilm[0]->deskripsiFilm?></div>
+          </div>
           
-        </ul>
+        </div>
+<br><br>
+<div align="left"> 
+<p> Cast &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo  $daftarFilm[0]->pemain?></p><hr color="white">
+<p> Director &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo  $daftarFilm[0]->sutradara?></p><hr  color="white">
+<p> Producers &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo  $daftarFilm[0]->produser?> </p><hr  color="white">
+<p> Director &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo  $daftarFilm[0]->sutradara?></p><hr  color="white">
+<p> Release Date : <?php echo $daftarFilm[0]->releaseDate?></p><hr color="white">
+</div>
+      
 
       </div>
        <div class="[ col-xs-3 col-sm-offset-2 col-sm-3 sosmed] ">
@@ -334,6 +334,17 @@
 <i class="fa fa-instagram"></i>&nbsp;Instagram : inicinema <br>
 <i class="fa fa-twitter"></i>&nbsp;Twitter : @inicinema<br>
 <i class="fa fa-phone"></i>&nbsp;Telepon : 087678987654</p>
+  </div><br><br>
+    <div style="padding-left: 10px; padding-top: 23px; margin-right: -75px;">  
+       
+<h5 align="left">Now Playing</h5><hr color="white">
+<div class="row">
+<?php   foreach ($daftarJadwal as $row) {
+?>
+<div class="col-md-3"><font size="24px"> <?php echo $row->namaStudio; ?></font></div>
+<div class="col-md-8" style="margin-left: -32px; margin-top: 30px"> <?php  echo $row->judulFilm; ?></div>
+<?php   } ?>
+</div>
   </div>
     </div>
   </div>

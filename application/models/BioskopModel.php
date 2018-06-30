@@ -40,6 +40,12 @@ class BioskopModel extends CI_Model {
             $query = $this->db->get('film');
             return $query->result();
     }
+    public function getstudio($id)
+    {
+        $this->db->where('idStudio', $id);
+        $query = $this->db->get('datastudio');
+            return $query->result();
+    }
 
     public function getDataFilm($id)
     {
@@ -55,12 +61,36 @@ class BioskopModel extends CI_Model {
             return $query->result();
         }
     }
+    public function cekjadwal(){
+         $tgl=date('Y-m-d');
+         // $query = $this->db->query("SELECT * FROM film INNER join jadwalfilm on film.noFilm= jadwalfilm.noFilm WHERE jadwalfilm.tanggalTayang = $tgl GROUP by tanggalTayang");
+        $this->db->select('*');
+        $this->db->from('film');
+        $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
+        $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
+         $this->db->where('tanggalTayang', $tgl);
+         $this->db->group_by("tanggalTayang");
+         $this->db->group_by("jadwalfilm.idStudio");
+         $query = $this->db->get();
+        return $query->result();
+    }
+    public function cekjam($film,$studio){
+          $this->db->select('*');
+        $this->db->from('jadwalfilm');
+         $this->db->where('tanggalTayang', $tgl);
+          $this->db->where('noFilm', $film);
+          $this->db->where('idStudio', $studio);
+            $query = $this->db->get();
+        return $query->result();
+
+
+    }
     public function getcomingsoon(){
         $query = $this->db->query("SELECT * FROM film where noFilm NOT in (SELECT noFilm from jadwalfilm)");
         return $query->result();
     }
     public function getnowplaying(){
-        $query = $this->db->query("SELECT * FROM film inner join jadwalfilm on film.noFilm=jadwalfilm.noFilm");
+        $query = $this->db->query("SELECT * FROM film inner join jadwalfilm on film.noFilm=jadwalfilm.noFilm group by film.noFilm");
         return $query->result();
     }
 
