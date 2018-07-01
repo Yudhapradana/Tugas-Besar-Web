@@ -1,4 +1,3 @@
-
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -22,7 +21,7 @@
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
-                        <a href="<?php echo site_url()?>/TabelAdmin/daftarAdmin" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
+                        <a href="<?php echo site_url()?>/TabelFilm/" class="btn pull-right hidden-sm-down btn-success"> Kembali</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -32,50 +31,64 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div>
-                <?php echo form_open_multipart('TabelAdmin/update/'.$this->uri->segment(3)); ?>
-                <legend><center>Edit Admin</center></legend>
-                <?php echo validation_errors(); ?>
-                <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control" name="username" value="<?php echo $userAdmin[0]->username ?>" placeholder="username" >
+                
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-7">
+                        <!-- <h1>Selamat Datang <?php //echo $username; ?></h1> -->
+                    <div class="table-responsive container">
+                        <table class="table table-striped table-bordered container">
+                            <?php foreach ($daftarAdmin as $key ) { ?>
+                            <tr>
+    
+                                <td colspan="2"><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><b>Nama</b></td>
+                                <td><b><?php echo $key->nama ?></b></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><b>Alamat</b></td>
+                                <td><b><?php echo $key->alamat ?></b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Telepon</b></td>
+                                <td><b><?php echo $key->telepon ?></b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td><b><?php echo $key->email ?></b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Username</b></td>
+                                <td><b><?php echo $key->username ?></b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Password</b></td>
+                                <td><b><?php echo $key->password ?></b></td>
+                            </tr>
+                            <tr>
+                                <td><b>Saldo</b></td>
+                                <td><b><?php echo $key->saldo ?></b></td>
+                            </tr>
+
+                            <?php } ?>
+                        </table>
+                    </div>
+                    </div>
+                    <div class="col-lg-1"></div>
                 </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" name="password" value="<?php echo $userAdmin[0]->password ?>" placeholder="password" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" value="<?php echo $userAdmin[0]->nama ?>" placeholder="nama" >
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" name="alamat" value="<?php echo $userAdmin[0]->alamat ?>" placeholder="alamat" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" value="<?php echo $userAdmin[0]->telepon ?>" placeholder="telepon" >
-                </div>
-                <div class="form-group">
-                <label for="">Email</label>
-                <input type="text" class="form-control" name="email" value="<?php echo $userAdmin[0]->email ?>" placeholder="email" >
-                </div>
-                <div class="form-group">
-                <label class="col-lg-2 col-sm-2 control-label">Saldo</label>
-                <input type="text" class="form-control" name="saldo" value="<?php echo $userAdmin[0]->saldo ?>" placeholder="">
-                </div>
-                <div class="form-group">
-                <label for="col-lg-2 col-sm-2 control-label">Foto</label>
-                <input type="file" class="form-control" name="foto" value="<?php echo $userAdmin[0]->foto ?>" placeholder="upload foto" >
-                </div>
-                <center><button type="submit" class="btn btn-primary">Submit</button></center>
-                <?php echo form_close(); ?>
-            </div>
+
+    
                     <!-- Column -->
                     <!-- Column -->
                     
                     <!-- Column -->
                 </div>
+                
                 <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -104,7 +117,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+   <script src="<?php echo base_url()?>assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?php echo base_url()?>assets/plugins/bootstrap/js/tether.min.js"></script>
     <script src="<?php echo base_url()?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -118,10 +131,12 @@
     <script src="<?php echo base_url()?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url()?>assets/js/custom.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/flot-data.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="<?php echo base_url()?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
 </body>
 
 </html>

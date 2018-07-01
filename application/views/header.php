@@ -83,14 +83,12 @@
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
+
+                    <ul class="navbar-nav my-lg-0 menu">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()?>assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" /><?php   echo $username; ?></a>
-                        <ul class="dropdown-menu">
-                        <li> <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> profil</a></li>
-                        <li><div class="nav-link dropdown-toggle text-muted waves-effect waves-dark"><a href="<?php echo site_url('login/logout')?>" >log out<span class="glyphicon glyphicon-log-out"></span></a></div></li>
-                        </ul>
-                        </li>
+                        <!-- <ul class="dropdown-menu"> -->
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="<?php echo site_url()?>/Login/logout">Logout</a>
 
                     </ul>
                 </div>
@@ -112,7 +110,7 @@
                             <a href="<?php echo site_url()?>/HomeAdmin" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo site_url()?>/Home/profil" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                            <a href="<?php echo site_url()?>/TabelAdmin/profil/<?php echo $username; ?>" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                         <li>
                             <a href="<?php echo site_url()?>/TabelStudio/gridDinamis" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>

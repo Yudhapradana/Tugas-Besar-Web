@@ -34,6 +34,7 @@
                 
                 <div class="row">
                     <!-- Column -->
+                    <div class="col-lg-9">
                     <div class="table-responsive container">
                         <table class="table table-striped table-bordered">
                             <?php foreach ($daftarFilm as $key ) { ?>
@@ -41,8 +42,11 @@
                                 <td colspan="2"><center><b><?php echo $key->judulFilm ?></b></center></td>
                             </tr>
                             <tr>
-                                <td rowspan="6"><center><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-fluid" height="400" width="300" /></center></td>
+                                <td rowspan="8"><center><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-fluid"/></center></td>
                                 
+                            </tr>
+                            <tr>
+                                <td><b><?php echo $key->genre ?></b></td>
                             </tr>
                             <tr>
                                 <td><b><?php echo $key->produser ?></b></td>
@@ -60,11 +64,13 @@
                                 <td><b><?php echo $key->durasi ?></b></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><b><?php echo $key->deskripsiFilm ?></b></td>
+                                <td><b><?php echo $key->deskripsiFilm ?></b></td>
                             </tr>
                             <?php } ?>
                         </table>
                     </div>
+                    </div>
+                </div>
 
     
                     <!-- Column -->

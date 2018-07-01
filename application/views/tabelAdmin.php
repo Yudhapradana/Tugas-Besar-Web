@@ -93,6 +93,12 @@
                                     <input type="text" class="form-control" name="nama" placeholder="nama">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="col-lg-2 col-sm-2 control-label">Foto</label>
+                                <div class="col-lg-10">
+                                <input type="file" class="form-control" name="foto" value="" placeholder="upload foto" >
+                            </div>
+                            </div>
                              <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Alamat</label>
                                 <div class="col-lg-10">
@@ -109,6 +115,12 @@
                                 <label class="col-lg-2 col-sm-2 control-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" name="email" placeholder="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">Saldo</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" name="saldo" placeholder="0">
                                 </div>
                             </div>
                             <div class="form-group">
