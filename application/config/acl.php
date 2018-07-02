@@ -82,6 +82,11 @@ $acl = array(
 		'admin'=> true,
 		'superadmin' => true,
 	),
+	'TabelProfil' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+
 
 );
 

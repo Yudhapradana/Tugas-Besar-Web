@@ -3,7 +3,7 @@
  @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
     @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
     body {
-       padding-top: 20px;
+      
     
     background-color: rgb(220, 220, 220);
   }
@@ -337,7 +337,7 @@ td{
   </div><br><br>
     <div style="padding-left: 10px; padding-top: 23px; margin-right: -75px;">  
        
-<h5 align="left">Now Playing</h5><hr color="white">
+<p align="center" ><font size="6px" >Now Playing</font></p><hr color="white" style="margin-bottom: 3px; margin-top: -23px;" >
 <div class="row">
 <?php   foreach ($daftarJadwal as $row) {
 ?>

@@ -80,6 +80,14 @@
     width: 100%;
     text-align: center;
   }
+  .tombol{
+    border-radius: 0;
+    color: white;
+    background:#1db8e2;}
+  .tombol:hover {
+   background: black;
+   color: white;
+}
   .event-list > li > .social > ul {
     margin: 0px;
   }
@@ -314,8 +322,9 @@
               <h2 class="title" style="color: #17a2b8"><?php echo $key->judulFilm ?></h2>
               <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);">  
               <p class="desc"  style="color: #17a2b8">HTM : Rp <?php echo $key->harga ?> </p>
-              <p class="desc"  style="color: #17a2b8"><?php echo $key->genre?> | <?php echo $key->durasi ?> MENIT</p><br>
-               &nbsp;&nbsp;<button type="button" class="btn btn-primary " style="border-radius: 0;">Cek Jam Tayang</button>
+              <p class="desc"  style="color: #17a2b8"><?php echo $key->genre?> | <?php echo $key->durasi ?> MENIT</p>
+              <div align="right">
+               &nbsp;&nbsp;<button  type="button" class="btn tombol" style=" border-radius: 0;">Cek Jam Tayang</button></div>
             </div>
             
           </li>
