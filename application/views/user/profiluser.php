@@ -80,15 +80,15 @@ border:0px;
 <div class="row">
 <div class="col-md-2"> 
 <div style="background: black; color: white; height: 241px; text-align: left; min-height: 1000px; margin-right: -10px;">
-    <img src="<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg" alt="" width="100px" height="130px" style="margin-left: 50px;margin-top: 20px"><br><br>
+    <img src="<?php echo base_url()?>assets/upload/<?php echo $this->session->userdata('logged_in')['foto'] ?>" alt="" width="100px" height="130px" style="margin-left: 50px;margin-top: 20px"><br><br>
     <div align="center" class="nama"> malak diana dewi<br>malakdiana@gmail.com</div><br>
     <div class="saldo">&nbsp;SALDO &nbsp;&nbsp;: 0 </div><br>
     <div class="ket" align="center">HARAP ISI BALANCE/SALDO ANDA. PENGISIAN DAPAT DILAKUKAN DI SEMUA CABANG INI CINEMA </div><br>
-   
-    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button>
-    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button>
-    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button>
-    <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a>
+   <hr color="green"  style="margin-bottom:1px">
+    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button><hr color="green" style="margin-bottom:1px;margin-top: 1px">
+    <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
  
 
 </div>
