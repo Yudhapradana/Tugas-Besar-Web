@@ -31,6 +31,10 @@ class TabelJadwal extends CI_Controller {
 		$this->load->model('TabelJadwalModel');
        $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         
          $data['jadwal_list'] = $this->TabelJadwalModel->getAllJadwal();
@@ -44,6 +48,10 @@ class TabelJadwal extends CI_Controller {
           $this->load->model('TabelJadwalModel');
          $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         
          $data['jadwal_list'] = $this->TabelJadwalModel->getAllJadwal();
@@ -78,6 +86,10 @@ class TabelJadwal extends CI_Controller {
         $this->load->model('TabelJadwalModel');
           $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         $data['list']= $this->TabelJadwalModel->getJadwal($id);
          $data['film_list']= $this->TabelJadwalModel->getFilm();

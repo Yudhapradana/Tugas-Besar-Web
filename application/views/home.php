@@ -21,9 +21,7 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
-                    <div class="col-md-6 col-4 align-self-center">
-                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success"> Upgrade to Pro</a>
-                    </div>
+                    
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -32,9 +30,9 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <!-- Row -->
-                <div class="row">
+                <!-- <div class="row"> -->
                     <!-- Column -->
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <div class="card">
                             <div class="card-block">
                                 <h4 class="card-title">Daily Sales</h4>
@@ -44,14 +42,14 @@
                                 </div>
                                 <span class="text-success">80%</span>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 0%; height: 6px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="0"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <div class="card">
                             <div class="card-block">
                                 <h4 class="card-title">Weekly Sales</h4>
@@ -67,12 +65,12 @@
                         </div>
                     </div>
                     <!-- Column -->
-                </div>
+                <!-- </div> -->
                 <!-- Row -->
                 <!-- Row -->
-                <div class="row">
+                <!-- <div class="row">
                     <!-- column -->
-                    <div class="col-sm-12">
+                    <!-- <div class="col-sm-12">
                         <div class="card">
                             <div class="card-block">
                                 <h4 class="card-title">Revenue Statistics</h4>
@@ -83,39 +81,43 @@
                         </div>
                     </div>
                     <!-- column -->
-                </div>
+                <!-- </div>  -->
                 <!-- Row -->
                 <!-- Row -->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-block">
-                                <select class="custom-select pull-right">
+                                <!-- <select class="custom-select pull-right">
                                     <option selected>January</option>
                                     <option value="1">February</option>
                                     <option value="2">March</option>
                                     <option value="3">April</option>
-                                </select>
-                                <h4 class="card-title">Projects of the Month</h4>
+                                </select> -->
+                                
+                                <h4 class="card-title">Data Saldo Pengguna</h4>
                                 <div class="table-responsive m-t-40">
                                     <table class="table stylish-table">
                                         <thead>
+
                                             <tr>
-                                                <th colspan="2">Assigned</th>
-                                                <th>Name</th>
-                                                <th>Budget</th>
+                                                <th colspan="2">Pengguna</th>
+                                                <th>Email</th>
+                                                <th>Saldo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach ($daftarAdmin as $key ) { ?>
                                             <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
+                                                <td style="width:50px;"><span class="round"><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" alt="user" width="50" height="50" /></span></td>
                                                 <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
-                                                <td>Elite Admin</td>
-                                                <td>$3.9K</td>
+                                                    <h6><?php echo $key->nama ?></h6><small class="text-muted"><?php echo $key->username ?></small></td>
+                                                <td><?php echo $key->email ?></td>
+                                                <td>Rp. <?php echo $key->saldo ?></td>
                                             </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="<?php echo base_url()?>assets/images/users/2.jpg" alt="user" width="50" /></span></td>
+                                            <?php } ?>
+                                            <!-- <tr class="active">
+                                                <td><span class="round"><img src="<?php //echo base_url()?>assets/upload/<?php //echo $key->foto?>" alt="user" width="50" /></span></td>
                                                 <td>
                                                     <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
                                                 <td>Real Homes</td>
@@ -148,7 +150,7 @@
                                                     <h6>Johnathan</h6><small class="text-muted">Graphic</small></td>
                                                 <td>Digital Agency</td>
                                                 <td>$2.6K</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -159,10 +161,24 @@
                 <!-- Row -->
                 <!-- Row -->
                 <div class="row">
-                    <!-- Column -->
+                    <!-- Column --><?php foreach ($daftarfilm as $key ) { ?>
                     <div class="col-lg-4">
                         <div class="card">
-                            <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/images/big/img1.jpg" alt="Card">
+                            <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" alt="Card">
+                            <div class="card-block">
+                                <ul class="list-inline font-14">
+                                    <li class="p-l-0"><?php echo $key->genre ?></li>
+                                </ul>
+                                <h3 class="font-normal"><?php echo $key->judulFilm ?></h3>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <!-- <div class="col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="<?php //echo base_url()?>assets/images/big/img2.jpg" alt="Card">
                             <div class="card-block">
                                 <ul class="list-inline font-14">
                                     <li class="p-l-0">20 May 2016</li>
@@ -174,9 +190,9 @@
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-4">
+                    <!-- <div class="col-lg-4">
                         <div class="card">
-                            <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/images/big/img2.jpg" alt="Card">
+                            <img class="card-img-top img-responsive" src="<?php //echo base_url()?>assets/images/big/img4.jpg" alt="Card">
                             <div class="card-block">
                                 <ul class="list-inline font-14">
                                     <li class="p-l-0">20 May 2016</li>
@@ -185,21 +201,7 @@
                                 <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
                             </div>
                         </div>
-                    </div>
-                    <!-- Column -->
-                    <!-- Column -->
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="<?php echo base_url()?>assets/images/big/img4.jpg" alt="Card">
-                            <div class="card-block">
-                                <ul class="list-inline font-14">
-                                    <li class="p-l-0">20 May 2016</li>
-                                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
-                                </ul>
-                                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --> 
                     <!-- Column -->
                 </div>
                 <!-- Row -->

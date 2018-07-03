@@ -29,7 +29,9 @@ class TabelAdmin extends CI_Controller {
 	{
 		$session_data=$this->session->userdata('logged_in');
         $data['username'] = $session_data['username'];
-        
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->load->view('header', $data);
         $this->load->view('tabelAdmin');
 	}
@@ -39,6 +41,9 @@ class TabelAdmin extends CI_Controller {
      $this->load->model('ModelTabelAdmin');
         $session_data=$this->session->userdata('logged_in');
         $username['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         //$id['idUserAdmin'] = $session_data['idUserAdmin'];
         $this->load->view('header', $username);   
         $data['daftarAdmin'] = $this->ModelTabelAdmin->getDataProfil($id);
@@ -49,8 +54,11 @@ class TabelAdmin extends CI_Controller {
 	{
 		$this->load->model('ModelTabelAdmin');
         $session_data=$this->session->userdata('logged_in');
-        $username['username'] = $session_data['username'];
-        $this->load->view('header', $username);
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+        $this->load->view('header', $data);
         $data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
         $this->load->view('tabelAdmin', $data);
 	}
@@ -68,7 +76,11 @@ class TabelAdmin extends CI_Controller {
         if (! $this->upload->do_upload('foto')) {
             $error = array('error' => $this->upload->display_errors());
             $session_data=$this->session->userdata('logged_in');
-            $data['username']=$session_data['username'];    
+            $data['username']=$session_data['username']; 
+            $data['id'] = $session_data['id'];
+            $id= $session_data['id']; 
+            $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);  
         }else{
             $this->load->model('ModelTabelAdmin');
         $this->ModelTabelAdmin->saveAdmin();
@@ -104,9 +116,12 @@ class TabelAdmin extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             //$data['userAdmin']=$this->ModelTabelAdmin->getDataAdmin($id);
             $session_data=$this->session->userdata('logged_in');
-            $username['username'] = $session_data['username'];
-        
-            $this->load->view('header', $username);
+            $data['username'] = $session_data['username'];
+            $data['id'] = $session_data['id'];
+            $id= $session_data['id'];
+            $this->load->model('ModelTabelAdmin');
+            $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+            $this->load->view('header', $data);
             $this->load->view('updateAdmin', $data);
         } else {
             $config['upload_path'] = './assets/upload/';

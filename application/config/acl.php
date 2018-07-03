@@ -86,6 +86,10 @@ $acl = array(
 		'admin'=> true,
 		'superadmin' => true,
 	),
+	'TabelSaldo' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
 
 
 );

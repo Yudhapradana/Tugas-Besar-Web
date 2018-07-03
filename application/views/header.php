@@ -73,12 +73,12 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto mt-md-0 ">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <!-- <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search p-l-20">
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a>
                             </form>
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -86,7 +86,10 @@
 
                     <ul class="navbar-nav my-lg-0 menu">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()?>assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" /><?php   echo $username; ?></a>
+                            <?php foreach ($foto as $key): ?>
+                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()?>assets/upload/<?php echo $key['foto']; ?>" alt="user" class="profile-pic m-r-5" /><?php   echo $username; ?></a>
+                            <?php endforeach ?>
+                           
                         <!-- <ul class="dropdown-menu"> -->
                         <a class="nav-link dropdown-toggle waves-effect waves-dark" href="<?php echo site_url()?>/Login/logout">Logout</a>
 
@@ -109,9 +112,11 @@
                         <li>
                             <a href="<?php echo site_url()?>/HomeAdmin" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
                         </li>
+                        
                         <li>
-                            <a href="<?php echo site_url()?>/TabelProfil/profil/<?php echo $username; ?>" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                            <a href="<?php echo site_url()?>/TabelProfil/profil/<?php echo $id[0]; ?>" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
+                  
                         <li>
                             <a href="<?php echo site_url()?>/TabelStudio/gridDinamis" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Studio</a>
                         </li>
@@ -126,6 +131,9 @@
                         </li>
                         <li>
                             <a href="<?php echo site_url()?>/TabelUser" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar User</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url()?>/TabelSaldo/daftarSaldo" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Transaksi Saldo</a>
                         </li>
                     </ul>
                    

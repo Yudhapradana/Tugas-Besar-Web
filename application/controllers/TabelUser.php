@@ -29,8 +29,12 @@ class TabelUser extends CI_Controller {
 	{
 		$this->load->model('ModelTabelUser');
         $session_data=$this->session->userdata('logged_in');
-        $username['username'] = $session_data['username'];
-        $this->load->view('header', $username);
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+        $this->load->view('header', $data);
         $data['daftarUser'] = $this->ModelTabelUser->getAllUser();
         $this->load->view('tabelUser', $data);
 	}
@@ -39,8 +43,12 @@ class TabelUser extends CI_Controller {
 	{
 		$this->load->model('ModelTabelUser');
         $session_data=$this->session->userdata('logged_in');
-        $username['username'] = $session_data['username'];
-        $this->load->view('header', $username);
+        $data['username'] = $session_data['username'];
+         $data['id'] = $session_data['id'];
+         $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+        $this->load->view('header', $data);
         $data['daftarUser'] = $this->ModelTabelUser->getAllUser();
         $this->load->view('tabelUser', $data);
 	}
@@ -80,9 +88,13 @@ class TabelUser extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             //$data['userAdmin']=$this->ModelTabelAdmin->getDataAdmin($id);
             $session_data=$this->session->userdata('logged_in');
-            $username['username'] = $session_data['username'];
+            $data['username'] = $session_data['username'];
+            $data['id'] = $session_data['id'];
+            $id= $session_data['id'];
+            $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         
-            $this->load->view('header', $username);
+            $this->load->view('header', $data);
             $this->load->view('updateUser', $data);
         } else {
             $this->ModelTabelUser->updateUser($id);

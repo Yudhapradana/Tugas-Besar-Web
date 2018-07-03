@@ -42,37 +42,37 @@
                             <?php foreach ($daftarAdmin as $key ) { ?>
                             <tr>
     
-                                <td colspan="2"><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>"/></td>
+                                <td colspan="2"><img src="<?php echo base_url()?>assets/upload/<?php echo $key['foto']; ?>"></td>
                                 
                             </tr>
                             <tr>
                                 <td><b>Nama</b></td>
-                                <td><b><?php echo $key->nama ?></b></td>
+                                <td><b><?php echo $key['nama'] ?></b></td>
                             </tr>
                             
                             <tr>
                                 <td><b>Alamat</b></td>
-                                <td><b><?php echo $key->alamat ?></b></td>
+                                <td><b><?php echo $key['alamat'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Telepon</b></td>
-                                <td><b><?php echo $key->telepon ?></b></td>
+                                <td><b><?php echo $key['telepon'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Email</b></td>
-                                <td><b><?php echo $key->email ?></b></td>
+                                <td><b><?php echo $key['email'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Username</b></td>
-                                <td><b><?php echo $key->username ?></b></td>
+                                <td><b><?php echo $key['username'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Password</b></td>
-                                <td><b><?php echo $key->password ?></b></td>
+                                <td><b><?php echo $key['password'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Saldo</b></td>
-                                <td><b><?php echo $key->saldo ?></b></td>
+                                <td><b><?php echo $key['saldo'] ?></b></td>
                             </tr>
 
                             <?php } ?>

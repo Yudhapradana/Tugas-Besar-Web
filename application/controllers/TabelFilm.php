@@ -30,6 +30,10 @@ class TabelFilm extends CI_Controller {
 		$this->load->model('BioskopModel');
         $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         $data['daftarFilm'] = $this->BioskopModel->getFilm();
         $this->load->view('daftarFilm', $data);
@@ -40,6 +44,10 @@ class TabelFilm extends CI_Controller {
     $this->load->model('BioskopModel');
     $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         $data['daftarFilm'] = $this->BioskopModel->getDataFilm($id);
         $this->load->view('detailFilm', $data);
@@ -57,6 +65,10 @@ class TabelFilm extends CI_Controller {
         $data['daftarFilm'] = $this->BioskopModel->getFilm();
       $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         $this->load->view('daftarFilm',$data);
     }
@@ -79,6 +91,10 @@ class TabelFilm extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
             $this->load->view('edit_film_view', $data);
         } else {
@@ -129,6 +145,10 @@ class TabelFilm extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
          $session_data=$this->session->userdata('logged_in');
         $data['username']=$session_data['username'];
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
             $this->load->view('tambah_film_view');
         } else {
@@ -144,6 +164,10 @@ class TabelFilm extends CI_Controller {
                 $error = array('error' => $this->upload->display_errors());
                	$session_data=$this->session->userdata('logged_in');
         		$data['username']=$session_data['username'];
+            $data['id'] = $session_data['id'];
+            $id= $session_data['id'];
+            $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          		$this->load->view('header',$data);
                 $this->load->view('tambah_film_view', $error);
             }
@@ -156,6 +180,10 @@ class TabelFilm extends CI_Controller {
 
                 $session_data=$this->session->userdata('logged_in');
         		$data['username']=$session_data['username'];
+            $data['id'] = $session_data['id'];
+            $id= $session_data['id'];
+            $this->load->model('ModelTabelAdmin');
+$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         		$this->load->view('header',$data);
                 $this->load->view('daftarFilm', $data);
             }

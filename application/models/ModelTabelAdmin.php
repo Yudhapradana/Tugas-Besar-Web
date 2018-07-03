@@ -16,11 +16,11 @@ class ModelTabelAdmin extends CI_Model {
         return $query->result();
     }
 
-    public function getDataProfil($username)
+    public function getDataProfil($id)
     {
-        $this->db->where('username', $username);
+        $this->db->where('idUserAdmin', $id);
         $query = $this->db->get('useradmin');
-        return $query->result();
+        return $query->result_array();
     }
 
     public function getAllAdmin()

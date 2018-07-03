@@ -28,12 +28,17 @@ class TabelProfil extends CI_Controller {
     public function profil($id)
     {
      $this->load->model('ModelTabelAdmin');
+
         $session_data=$this->session->userdata('logged_in');
-        $username['username'] = $session_data['username'];
-        //$id['idUserAdmin'] = $session_data['idUserAdmin'];
-        $this->load->view('header', $username);   
+         $data['username'] = $session_data['username'];
+        // $username['profil'] = 
+        $data['id'] = $session_data['id'];
+        $id= $session_data['id'];
+        $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+        $this->load->view('header', $data);   
         $data['daftarAdmin'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->load->view('profil', $data);
+
     }
 
 
