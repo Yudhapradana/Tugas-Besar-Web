@@ -18,6 +18,11 @@ class ProfilUser extends CI_Controller {
          $data['daftarprofil'] = $this->ModelTabelAdmin->getDataAdmin($session_data['id']);	
 		$this->load->view('user/profiluser',$data);
 	}
+  public function pesan(){
+    $this->load->model('PesanTiketModel');
+    $data['datafilm']=$this->PesanTiketModel->getFilm();
+    $this->load->view('user/pesantiket',$data);
+  }
 
 }
 

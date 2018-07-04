@@ -85,49 +85,35 @@ border:0px;
     <div class="saldo">&nbsp;SALDO &nbsp;&nbsp;: 0 </div><br>
     <div class="ket" align="center">HARAP ISI BALANCE/SALDO ANDA. PENGISIAN DAPAT DILAKUKAN DI SEMUA CABANG INI CINEMA </div><br>
    <hr color="green"  style="margin-bottom:1px">
-    <a href="<?php echo site_url()?>/profiluser/profil"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
+    <a href="<?php echo site_url()?>/profiluser"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <a href="<?php echo site_url()?>/profiluser/pesan">
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+ 
 
 </div>
 </div>
 <div class="col-md-9"> 
 <div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
 <div class="container"> 
-<div class="title"> PROFIL</div><br>
-<div align="left">PENGATURAN PROFIL<hr color="green" width="200px" align="left"></div>
-<div align="left"> 
-    <?php echo form_open_multipart('TabelUser/update/'.$this->uri->segment(3)); ?>
-                <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" value="<?php echo $daftarprofil[0]->nama?>" placeholder="nama" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" name="alamat" value="<?php echo $daftarprofil[0]->alamat?>" placeholder="alamat" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" value="<?php echo $daftarprofil[0]->telepon?>" placeholder="telepon" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="" >Email</label>
-                <input type="text" class="form-control xx" name="email" value="<?php echo $daftarprofil[0]->email?>" placeholder="email" style="border-radius: 0px; background-color:#161616;color: white" >
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="border-radius: 0px;font-size: 14px;">Update My Profil</button>
-  <?php echo form_close(); ?>
-            </div>
+<div class="title"> JUDUL FILM TERSEDIA</div><br>
+<div align="left" style="background-color: green;padding-left: 20px; padding-top: 10px; padding-bottom: 10px">Pilihan Film Tersedia Untuk Di-booking Hari ini: <?php echo date('d-m-Y');?>.  Semua Jam yang ditunjukan dalam website ini menggunakan WIB (Waktu Indonesia Barat)</div><br><br>
+<div align="left" class="row">
+<?php foreach ($datafilm as $key){ ?>
+    
+<div class="col-md-2" style="background-color: grey; margin-left: 20px">
+<img src="<?php echo base_url()?>assets/upload/<?php  echo $key->foto;?>" alt="" width="157" height="200" style="margin-left: -14px"><br>
+<div style="font-size: 16px; height: 40px"><b> <?php  echo $key->judulFilm; ?></b></div><br>
+<div style="font-size: 11px">  <?php  echo $key->durasi; ?> min <br>  <?php  echo $key->genre; ?><br> Now Playing </div><br>
+<button class="btn btn-success" style="border-radius: 0px; width:140px; margin-left: -7px; height:30px; margin-bottom: 3px; font-size: 12px">PESAN SEKARANG</button>
+
+  
+</div>  
+<?php   } ?> 
+ 
+
+</div>
 
 </div>
 </div>
