@@ -263,7 +263,7 @@
         height: auto;
  
         /* mengatur posisi */
-        position: fixed;
+     
         top: 0;
         left: 0;">
 <div style="background: rgba(0,0,0,.2); color: white; height: 1361px; padding: 50px; text-align: center; width: 1320px;  width: 100%; min-height: 100%;
@@ -320,7 +320,8 @@
             <img alt="My 24th Birthday!" src="<?php echo base_url()?>/assets/upload/<?php echo $key->foto ?>" />
             <div class="info">
               <h2 class="title" style="color: #17a2b8"><?php echo $key->judulFilm ?></h2>
-              <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);">  
+              <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);"> 
+              <p class="desc"  style="color: #17a2b8">Tanggal : Rp <?php echo $key->tanggalTayang ?> </p> 
               <p class="desc"  style="color: #17a2b8">HTM : Rp <?php echo $key->harga ?> </p>
               <p class="desc"  style="color: #17a2b8"><?php echo $key->genre?> | <?php echo $key->durasi ?> MENIT</p>
               <div align="right">

@@ -68,9 +68,10 @@ class BioskopModel extends CI_Model {
         $this->db->from('film');
         $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
         $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
-         $this->db->where('tanggalTayang', $tgl);
+         
          $this->db->group_by("tanggalTayang");
          $this->db->group_by("jadwalfilm.idStudio");
+         $this->db->order_by("tanggalTayang","asc");
          $query = $this->db->get();
         return $query->result();
     }

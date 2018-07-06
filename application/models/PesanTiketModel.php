@@ -10,11 +10,36 @@ class PesanTiketModel extends CI_Model {
         $this->db->from('film');
         $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
         $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
-         $this->db->where('tanggalTayang', $tgl);
-         $this->db->group_by("tanggalTayang");
+         //$this->db->where('tanggalTayang', $tgl);
+       //  $this->db->group_by("tanggalTayang");
          $this->db->group_by("film.noFilm");
          $query = $this->db->get();
         return $query->result();
 	}
+        public function getFilmById($film){
+        $this->db->select('*');
+        $this->db->from('film');
+        $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
+        $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
+         $this->db->where('film.noFilm', $film);
+         $query = $this->db->get();
+        return $query->result();
+        }
+        public function film($film){
+        $this->db->select('*');
+        $this->db->from('film');
+        $this->db->where('noFilm', $film);
+         $query = $this->db->get();
+        return $query->result();
+        }
+        public function getFilmByIdJadwal($film){
+        $this->db->select('*');
+        $this->db->from('film');
+        $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
+        $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
+         $this->db->where('jadwalfilm.idJadwal', $film);
+         $query = $this->db->get();
+        return $query->result();
+        }
 
 }

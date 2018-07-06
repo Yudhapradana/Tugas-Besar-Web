@@ -22,6 +22,22 @@
 
 
 }
+hr{
+  padding-top: -90px;
+}
+th,td{
+  width: 200px;
+  color: white;
+  border-bottom: 1px solid white;
+  height: 50px;
+
+}
+
+.btn{
+  width:50px;
+  margin-bottom: 50px
+
+}
 
 .title{
   
@@ -79,7 +95,7 @@ border:0px;
 <div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding-left: 90px;  height: auto;top: 0; left: 0; overflow-y:auto; min-height: 1000px; overflow-x: hidden;">
 <div class="row">
 <div class="col-md-2"> 
-<div style="background: black; color: white; height: 241px; text-align: left; min-height: 1000px; margin-right: -10px;">
+<div style="background: black; color: white; height:1300px; text-align: left; min-height: 1000px; margin-right: -10px;">
     <img src="<?php echo base_url()?>assets/upload/<?php echo $this->session->userdata('logged_in')['foto'] ?>" alt="" width="100px" height="130px" style="margin-left: 50px;margin-top: 20px"><br><br>
     <div align="center" class="nama"> malak diana dewi<br>malakdiana@gmail.com</div><br>
     <div class="saldo">&nbsp;SALDO &nbsp;&nbsp;: 0 </div><br>
@@ -95,31 +111,63 @@ border:0px;
 </div>
 </div>
 <div class="col-md-9"> 
-<div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
-<div class="container"> 
-<div class="title"> JUDUL FILM TERSEDIA</div><br>
-<div align="left" style="background-color: green;padding-left: 20px; padding-top: 10px; padding-bottom: 10px">Pilihan Film Tersedia Untuk Di-booking Hari ini: <?php echo date('d-m-Y');?>.  Semua Jam yang ditunjukan dalam website ini menggunakan WIB (Waktu Indonesia Barat)</div><br><br>
-<div align="left" class="row">
-<?php foreach ($datafilm as $key){ ?>
-    
-<div class="col-md-2" style="background-color: grey; margin-left: 20px">
-<img src="<?php echo base_url()?>assets/upload/<?php  echo $key->foto;?>" alt="" width="157" height="200" style="margin-left: -14px"><br>
-<div style="font-size: 16px; height: 40px"><b> <?php  echo $key->judulFilm; ?></b></div><br>
-<div style="font-size: 11px">  <?php  echo $key->durasi; ?> min <br>  <?php  echo $key->genre; ?><br> Now Playing </div><br>
-<a href="<?php echo site_url()?>/profiluser/pilihjam/<?php  echo $key->noFilm;?>"><button class="btn btn-success" style="border-radius: 0px; width:140px; margin-left: -7px; height:30px; margin-bottom: 3px; font-size: 12px">PESAN SEKARANG</button></a>
+<div style="background:#202120; color: white; height: auto; text-align: center; margin-left: -20px;min-height: 1000px"><br>
+<div class="container">
+<div class="title">Black Panter</div><br>
+<p align="left"><a href="">Kembali Pilih Film</a></p><br>
+        <div class="row" align="left">
+          <div class="col-md-3">
+            <img src="<?php echo base_url()?>assets/upload/<?php echo $datafilm[0]->foto ?>" alt="" width="200px" height="250px">
+          </div>
+          <div class="col-md-9" style="padding-left: 48px;">
+            
+            <table>
+              <tr>
+                <td>Teater </td>
+                <td>Studi<?php echo $datafilm[0]->namaStudio ?></td>
+                <td>Jam Show </td>
+                <td><?php echo $datafilm[0]->jadwalTayang ?></td>
+              </tr>
+              <tr>
+                <td>HTM</td>
+                <td><?php echo $datafilm[0]->harga?></td>
+                <td>Durasi</td>
+                <td><?php echo $datafilm[0]->durasi ?></td>
+              </tr>
+              <tr>
+                <td>Genre</td>
+                <td><?php echo $datafilm[0]->genre?></td>
+                <td>Cast</td>
+                <td><?php echo $datafilm[0]->pemain?></td>
+              </tr>
+            </table><br><br>
+            
 
-  
-</div>  
-<?php   } ?> 
- 
+          </div>
+          <div align="left" class="container"><br><br> Pilih kursi<br><br>
+          <div style="margin-left: 30px; margin-right: 30px">
+          <div style="background: green; color: white; text-align: center;">Layar Bioskop</div><br>
 
-</div>
 
-</div>
-</div>
-</div>
 
- <div class="container">
+
+<?php 
+echo form_open('profiluser/pilihkursi2/10');
+$kursi=$datafilm[0]->jumlahKursi;
+for($i=1;$i<=$kursi ;$i++){ ?>
+<?php if ($i==45){ ?>
+<input  class="btn" style="margin-bottom: 50px; background: red">
+<?php }else{?>
+<input name="<?php echo $i?>" class="btn" value="<?php echo "$i"; ?>" id="blue<?php echo $i?>" class="btn" onclick="document.getElementById('blue<?php echo $i?>').style.background = 'blue';value='pilih'" style="">
+<?php }} ?><br>
+<input type="submit" class="btn btn-primary" style="border-radius: 0; width: 200px">
+<?php echo form_close(); ?>
+  </div>        
+</div>
+</div>
+</div>
+</div>
+</div>
    <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -99,14 +99,18 @@ border:0px;
 <div class="title"> PROFIL</div><br>
 <div align="left">PENGATURAN PROFIL<hr color="green" width="200px" align="left"></div>
 <div align="left"> 
-    <?php echo form_open_multipart('TabelUser/update/'.$this->uri->segment(3)); ?>
+    <?php echo form_open_multipart('ProfilUser/update'); ?>
+                <div class="form-group">
+                <label for="">ID </label>
+                <input type="text" class="form-control xx" name="id" value="<?php echo $daftarprofil[0]->idUserAdmin ?>" readonly placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
+                </div>
                 <div class="form-group">
                 <label for="">Username</label>
                 <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
                 </div>
                 <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
+                <input type="text" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password;?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
                 </div>
                 <div class="form-group">
                 <label for="">Nama</label>
