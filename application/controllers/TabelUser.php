@@ -92,15 +92,30 @@ $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
             $data['id'] = $session_data['id'];
             $id= $session_data['id'];
             $this->load->model('ModelTabelAdmin');
-$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+            $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         
             $this->load->view('header', $data);
             $this->load->view('updateUser', $data);
         } else {
-            $this->ModelTabelUser->updateUser($id);
-            //$data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
-            $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('TabelUser/daftarUser', 'refresh');
+            $config['upload_path'] = './assets/upload/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']  = '10000000000';
+            $config['max_width']  = '10240';
+            $config['max_height']  = '7680';
+
+            $this->load->library('upload', $config);
+
+            if (! $this->upload->do_upload('foto')) {
+                $this->ModelTabelUser->updateUser($id);
+                //$data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
+                $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('TabelUser/daftarUser', 'refresh');
+              }else{
+                 $this->ModelTabelUser->updateUser2($id);
+                //$data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
+                $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('TabelUser/daftarUser', 'refresh');
+              }
         }   
     }
 

@@ -52,6 +52,17 @@ class ModelSaldo extends CI_Model {
             return $query->result();
     }
 
+    public function delete($id)
+    {
+        $this->db->where('idTransaksi', $id);
+        $this->db->delete('saldo');
+    }
+
+    public function update($id)
+    {
+        
+    }
+
 }
 
 /* End of file modelName.php */

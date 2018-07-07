@@ -61,6 +61,16 @@ class TabelSaldo extends CI_Controller {
         redirect('TabelSaldo/', 'refresh');
 	}
 
+	public function delete($id)
+    {
+
+        $this->load->model('TabelSaldo');
+        // $id = $this->input->post('idAdmin'); 
+        $this->TabelSaldo->delete($id);
+        $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('TabelSaldo/daftarSaldo', 'refresh');
+    }
+
 }
 
 /* End of file TabelSaldo.php */

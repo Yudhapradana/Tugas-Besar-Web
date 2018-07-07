@@ -48,6 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 <?php foreach ($daftarAdmin as $key ) { ?>
                                     <tr>
                                         <td><?php echo $key->idUserAdmin ?></td>

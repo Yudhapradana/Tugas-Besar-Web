@@ -29,7 +29,7 @@ class ModelTabelUser extends CI_Model {
     	$password= $this->input->post('password');
 		$md5=md5($password);
 		$level = "user";
-        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
+        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'), 'foto' => $this->upload->data('file_name'), 'saldo' => $this->input->post('saldo'),);
         $this->db->insert('useradmin', $object);
     }
 
@@ -43,11 +43,20 @@ class ModelTabelUser extends CI_Model {
         $password= $this->input->post('password');
 		$md5=md5($password);
 		$level = "user";
-        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'),);
+        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'), 'foto' => $this->upload->data('file_name'), 'saldo' => $this->input->post('saldo'),);
         $this->db->where('idUserAdmin', $id);
         $this->db->update('useradmin', $object);
     }
 	
+    public function updateUser2($id)
+    {
+        $password= $this->input->post('password');
+        $md5=md5($password);
+        $level = "user";
+        $object = array('username' => $this->input->post('username'), 'password' => $md5,'level' => $level, 'nama' => $this->input->post('nama'), 'alamat' => $this->input->post('alamat'), 'telepon' => $this->input->post('telepon'), 'email' => $this->input->post('email'), 'saldo' => $this->input->post('saldo'),);
+        $this->db->where('idUserAdmin', $id);
+        $this->db->update('useradmin', $object);
+    }
 
 }
 

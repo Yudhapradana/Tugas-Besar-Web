@@ -60,7 +60,14 @@
                 <label for="">Email</label>
                 <input type="text" class="form-control" name="email" value="<?php echo $userAdmin[0]->email ?>" placeholder="email" >
                 </div>
-                
+                <div class="form-group">
+                <label class="col-lg-2 col-sm-2 control-label">Saldo</label>
+                <input type="text" class="form-control" name="saldo" value="<?php echo $userAdmin[0]->saldo ?>" placeholder="">
+                </div>
+                <div class="form-group">
+                <label for="col-lg-2 col-sm-2 control-label">Foto</label>
+                <input type="file" class="form-control" name="foto" value="<?php echo $userAdmin[0]->foto ?>" placeholder="upload foto" >
+                </div>
                 <center><button type="submit" class="btn btn-primary">Submit</button></center>
                 <?php echo form_close(); ?>
             </div>

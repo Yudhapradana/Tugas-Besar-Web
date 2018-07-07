@@ -94,6 +94,11 @@
                                 </div>
                             </div>
                              <div class="form-group">
+                                <div class="form-group">
+                                <label for="col-lg-2 col-sm-2 control-label">Foto</label>
+                                <div class="col-lg-10">
+                                <input type="file" class="form-control" name="foto" value="" placeholder="upload foto" >
+                            </div>
                                 <label class="col-lg-2 col-sm-2 control-label">Alamat</label>
                                 <div class="col-lg-10">
                                     <textarea class="form-control" name="alamat" placeholder="alamat"></textarea>
@@ -109,6 +114,22 @@
                                 <label class="col-lg-2 col-sm-2 control-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="text" class="form-control" name="email" placeholder="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">Saldo</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" name="saldo" placeholder="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 col-sm-2 control-label">Role</label>
+                                <div class="col-lg-10">
+                                    <select name="level" class="form-control">
+                                        <option value="">---</option>
+                                        <option value="admin">Super Admin</option>
+                                        <option value="user">Admin</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
