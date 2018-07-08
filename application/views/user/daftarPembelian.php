@@ -22,6 +22,19 @@
 
 
 }
+hr{
+  padding-top: -90px;
+}
+th,td{
+  width: 200px;
+  color: green;
+  border-bottom: 1px solid white;
+  height: 50px;
+  
+}
+th{
+  background-color: grey;
+}
 
 .title{
   
@@ -88,56 +101,46 @@ border:0px;
     <a href="<?php echo site_url()?>/profiluser/profil"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <a href="<?php echo site_url()?>/profiluser/pesan">
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
-   <a href="<?php echo site_url()?>/profiluser/daftarPembelian">  <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button></a><hr color="green" style="margin-bottom:1px;margin-top: 1px">
+    <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+ 
 
 </div>
 </div>
 <div class="col-md-9"> 
 <div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
-<div class="container"> 
-<div class="title"> PROFIL</div><br>
-<div align="left">PENGATURAN PROFIL<hr color="green" width="200px" align="left"></div>
-<div align="left"> 
-    <?php echo form_open_multipart('ProfilUser/update'); ?>
-                <div class="form-group">
-                <label for="">ID </label>
-                <input type="text" class="form-control xx" name="id" value="<?php echo $daftarprofil[0]->idUserAdmin ?>" readonly placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password;?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" value="<?php echo $daftarprofil[0]->nama?>" placeholder="nama" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" name="alamat" value="<?php echo $daftarprofil[0]->alamat?>" placeholder="alamat" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" value="<?php echo $daftarprofil[0]->telepon?>" placeholder="telepon" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="" >Email</label>
-                <input type="text" class="form-control xx" name="email" value="<?php echo $daftarprofil[0]->email?>" placeholder="email" style="border-radius: 0px; background-color:#161616;color: white" >
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="border-radius: 0px;font-size: 14px;">Update My Profil</button>
-  <?php echo form_close(); ?>
-            </div>
-
-</div>
-</div>
-</div>
-
- <div class="container">
+<div class="container">
+<div class="title">Daftar Pembelian</div><br>
+<p align="left"><a href="<?php echo site_url()?>/HomeUser">Beranda</a></p><br>
+ <div class="row">
+                    <!-- Column -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" cellspacing="0" id="example" width="100%">
+                            <thead>
+                                <tr>
+                                    <td><b>Kode Booking</b></td>
+                                    <td><b>Tanggal</b></td>
+                                    <td><b>Judul Film</b></td>
+                                    <td><b>Studio</b></td>
+                                    <td><b>Total </b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <?php foreach ($datapembelian as $key ) { ?>
+                                    <tr>
+                                        <td><?php echo $key->noPembelian ?></td>
+                                        <td><?php echo $key->tanggalPesan ?></td>
+                                        <td><?php echo $key->judulFilm ?></td>
+                                        <td><?php echo $key->namaStudio ?></td>
+                                        <td><?php echo $key->totalHarga?></td>
+                                    
+                  
+                                    </tr>
+                                    <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
    <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -153,7 +156,18 @@ border:0px;
   <script src="<?php echo base_url()?>assets/user/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="<?php echo base_url()?>assets/user/contactform/contactform.js"></script>
+ <script src="<?php echo base_url()?>assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 
+        <!-- <script type="text/css" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+        <script src="<?php echo base_url();?>assets/datatables/jquery-2.2.4.js"></script>
+        <script src="<?php echo base_url();?>assets/datatables/jquery-2.2.4.min.js"></script>
+        <script src="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.js"></script>      
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.css">
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#example').DataTable();
+            });
+        </script>
   <!-- Template Main Javascript File -->
   <script src="<?php echo base_url()?>assets/user/js/main.js"></script>
 

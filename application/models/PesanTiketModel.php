@@ -106,5 +106,15 @@ class PesanTiketModel extends CI_Model {
         return $query->result();
     }
 
-
+      public function getPembelian()
+      {
+        $this->db->select('*');
+        $this->db->from('pembelian');
+        $this->db->join('jadwalfilm', 'jadwalfilm.idJadwal = pembelian.idJadwal');
+        $this->db->join('film', 'jadwalfilm.noFilm = film.noFilm');
+         $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
+        $this->db->where('idUser',$this->session->userdata('logged_in')['id']);
+        $query = $this->db->get();
+        return $query->result();
+      }
 }

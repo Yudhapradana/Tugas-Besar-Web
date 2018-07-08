@@ -100,6 +100,13 @@ class ProfilUser extends CI_Controller {
 
   }
 
+  public function daftarPembelian()
+  {
+    $this->load->model('PesanTiketModel');
+     $data['datapembelian']= $this->PesanTiketModel->getPembelian();
+      $this->load->view('user/daftarPembelian',$data);
+  }
+
 }
 
 /* End of file  .php */
