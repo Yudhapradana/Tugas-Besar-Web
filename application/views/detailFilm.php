@@ -36,14 +36,13 @@
                     <!-- Column -->
                     <div class="col-lg-9">
                     <div class="table-responsive container">
-                        <table class="table table-striped table-bordered">
+                        <table class="table table-bordered container">
                             <?php foreach ($daftarFilm as $key ) { ?>
                             <tr>
                                 <td colspan="2"><center><b><?php echo $key->judulFilm ?></b></center></td>
                             </tr>
                             <tr>
                                 <td rowspan="8"><center><img src="<?php echo base_url()?>assets/upload/<?php echo $key->foto?>" class="img-fluid"/></center></td>
-                                
                             </tr>
                             <tr>
                                 <td><b><?php echo $key->genre ?></b></td>

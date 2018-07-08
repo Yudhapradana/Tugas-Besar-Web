@@ -74,7 +74,13 @@ $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->BioskopModel->update($id);
     }
 
-
+     public function createPdf()
+  {
+    $this->load->model('BioskopModel');
+    $this->load->library('pdf');     
+    $data = $this->ModelSaldo->getAllBioskop();
+    $this->pdf->load_view('table-basic',$data);
+  }
 }
 
 /* End of file controllername.php */

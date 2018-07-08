@@ -42,7 +42,7 @@
                             <?php foreach ($daftarAdmin as $key ) { ?>
                             <tr>
     
-                                <td colspan="2"><img src="<?php echo base_url()?>assets/upload/<?php echo $key['foto']; ?>"></td>
+                                <td colspan="2"><img src="<?php echo base_url()?>assets/upload/<?php echo $key['foto']; ?>" class="img-circle" height="400" width="400"></td>
                                 
                             </tr>
                             <tr>
@@ -65,10 +65,6 @@
                             <tr>
                                 <td><b>Username</b></td>
                                 <td><b><?php echo $key['username'] ?></b></td>
-                            </tr>
-                            <tr>
-                                <td><b>Password</b></td>
-                                <td><b><?php echo $key['password'] ?></b></td>
                             </tr>
                             <tr>
                                 <td><b>Saldo</b></td>

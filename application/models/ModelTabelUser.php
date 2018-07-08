@@ -16,6 +16,15 @@ class ModelTabelUser extends CI_Model {
         return $query->result();
     }
 
+    public function getAllUser2()
+    {
+        $query = $this->db->where('level', "user");
+        $query = $this->db->get('useradmin');
+        if($query->num_rows()>0){
+            return $query->result();
+        }
+    }
+
     public function getAllUser()
     {
         $query = $this->db->get('useradmin');

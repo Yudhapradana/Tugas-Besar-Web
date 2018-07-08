@@ -135,6 +135,12 @@
                         <li>
                             <a href="<?php echo site_url()?>/TabelSaldo/daftarSaldo" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Transaksi Saldo</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url()?>/TabelPembelian/daftarPembelian" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Pembelian</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url()?>/TabelDetailPembelian/daftarDetailPembelian" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Daftar Detail Pembelian</a>
+                        </li>
                     </ul>
                    
                 </nav>

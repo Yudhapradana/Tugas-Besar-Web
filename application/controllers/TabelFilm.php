@@ -47,7 +47,7 @@ $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $data['id'] = $session_data['id'];
         $id= $session_data['id'];
         $this->load->model('ModelTabelAdmin');
-$data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
+        $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
          $this->load->view('header',$data);
         $data['daftarFilm'] = $this->BioskopModel->getDataFilm($id);
         $this->load->view('detailFilm', $data);

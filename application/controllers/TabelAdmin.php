@@ -59,7 +59,7 @@ class TabelAdmin extends CI_Controller {
         $id= $session_data['id'];
         $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->load->view('header', $data);
-        $data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin();
+        $data['daftarAdmin'] = $this->ModelTabelAdmin->getAllAdmin2();
         $this->load->view('tabelAdmin', $data);
 	}
 

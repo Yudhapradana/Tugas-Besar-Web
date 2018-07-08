@@ -23,8 +23,17 @@ class ModelTabelAdmin extends CI_Model {
         return $query->result_array();
     }
 
+    public function getAllAdmin2()
+    {
+     $this->db->where('level', "admin");
+        $query = $this->db->get('useradmin');
+        if($query->num_rows()>0){
+            return $query->result();
+        }
+    }
     public function getAllAdmin()
     {
+        //$this->db->where('idUserAdmin', $id);
         $query = $this->db->get('useradmin');
         if($query->num_rows()>0){
             return $query->result();

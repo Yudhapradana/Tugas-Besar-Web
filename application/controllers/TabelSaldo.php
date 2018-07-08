@@ -71,6 +71,14 @@ class TabelSaldo extends CI_Controller {
         redirect('TabelSaldo/daftarSaldo', 'refresh');
     }
 
+    public function createPdf()
+	{
+		$this->load->model('ModelSaldo');
+		$this->load->library('pdf');     
+		$data['daftarSaldo'] = $this->ModelSaldo->getAllSaldo();
+		$this->pdf->load_view('TabelSaldo',$data);
+	}
+
 }
 
 /* End of file TabelSaldo.php */

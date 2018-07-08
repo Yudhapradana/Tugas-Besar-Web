@@ -25,6 +25,9 @@
                     <div class="col-md-6 col-4 align-self-center">
                         <a data-toggle="modal" data-target="#myModal"><button  class="btn pull-right hidden-sm-down btn-success">Tambah</button></a>
                     </div>
+                    <div class="col-md-6 col-4 align-self-center">
+                        <a href="<?php echo site_url()?>/TabelJadwal/createPdf/"><button  class="btn pull-right hidden-sm-down btn-success">Download</button></a>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -212,11 +215,11 @@
         <script src="<?php echo base_url();?>assets/datatables/jquery-2.2.4.min.js"></script>
         <script src="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.js"></script>      
         <link rel="stylesheet" href="<?php echo base_url();?>assets/datatables/jquery.dataTables.min.css">
-        <script type="text/javascript">
+       <!--  <script type="text/javascript">
             $(document).ready(function(){
                 $('#example').DataTable();
             });
-        </script>
+        </script> -->
 
 
      <script>

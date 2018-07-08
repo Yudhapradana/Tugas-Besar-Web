@@ -172,8 +172,8 @@
                                 <h3 class="font-normal"><?php echo $key->judulFilm ?></h3>
                             </div>
                         </div>
-                        <?php } ?>
-                    </div>
+                        
+                    </div><?php } ?>
                     <!-- Column -->
                     <!-- Column -->
                     <!-- <div class="col-lg-4">

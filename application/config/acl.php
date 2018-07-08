@@ -90,6 +90,14 @@ $acl = array(
 		'admin'=> true,
 		'superadmin' => true,
 	),
+	'TabelPembelian' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
+	'TabelDetailPembelian' => array(
+		'admin'=> true,
+		'superadmin' => true,
+	),
 
 
 );

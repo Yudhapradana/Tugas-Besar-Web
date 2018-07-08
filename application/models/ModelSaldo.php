@@ -17,8 +17,7 @@ class ModelSaldo extends CI_Model {
         $this->db->insert('saldo', $object);
         $username= $this->input->post('username');
         $saldo2= $this->db->query("SELECT saldo FROM useradmin where username='$username'");
-        $saldo3= intval($saldo2);
-        $object2 = array('saldo'=>$saldo1+$saldo2);
+        $object2 = array('saldo'=>$saldo1+$saldo2[0]['saldo']);
         $this->db->where('username', $username);
         $this->db->update('useradmin', $object2);
 	}

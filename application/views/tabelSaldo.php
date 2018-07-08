@@ -23,6 +23,9 @@
                     <div class="col-md-6 col-4 align-self-center">
                         <a data-toggle="modal" data-target="#tambah-data"><button  class="btn pull-right hidden-sm-down btn-success">Tambah</button></a>
                     </div>
+                    <div class="col-md-6 col-4 align-self-center">
+                        <a href="<?php echo site_url()?>/TabelSaldo/createPdf/"><button  class="btn pull-right hidden-sm-down btn-success">Download</button></a>
+                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->

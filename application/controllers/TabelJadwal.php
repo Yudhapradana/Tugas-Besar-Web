@@ -109,6 +109,16 @@ $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
     }
     }
 
+    public function createPdf()
+  {
+    $this->load->model('TabelJadwalModel');
+    $this->load->library('pdf');     
+    $data['jadwal_list'] = $this->TabelJadwalModel->getAllJadwal();
+         $data['film_list']= $this->TabelJadwalModel->getFilm();
+         $data['studio_list']= $this->TabelJadwalModel->getStudio();
+    $this->pdf->load_view('tabelJadwal',$data);
+  }
+
 }
 
 /* End of file tabelJadwal.php */
