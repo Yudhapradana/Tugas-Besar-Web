@@ -69,18 +69,18 @@ class BioskopModel extends CI_Model {
         $this->db->join('jadwalfilm', 'film.noFilm = jadwalfilm.noFilm');
         $this->db->join('datastudio', 'jadwalfilm.idStudio = datastudio.idStudio');
          
-         $this->db->group_by("tanggalTayang");
+         
          $this->db->group_by("jadwalfilm.idStudio");
+         $this->db->group_by("tanggalTayang");
+         $this->db->group_by("film.noFilm");
          $this->db->order_by("tanggalTayang","asc");
          $query = $this->db->get();
         return $query->result();
     }
-    public function cekjam($film,$studio){
+    public function cekjam(){
           $this->db->select('*');
         $this->db->from('jadwalfilm');
-         $this->db->where('tanggalTayang', $tgl);
-          $this->db->where('noFilm', $film);
-          $this->db->where('idStudio', $studio);
+       
             $query = $this->db->get();
         return $query->result();
 

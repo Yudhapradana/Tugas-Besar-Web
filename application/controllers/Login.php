@@ -19,6 +19,7 @@ class Login extends CI_Controller {
 			$session_data=$this->session->userdata('logged_in');
 			$data['username']=$session_data['username'];
 			$data['level']=$session_data['level'];
+			$data['saldo']=$session_data['saldo'];
 			if($data['level']=='user'){
 				redirect('homeUser','refresh');
 			}else{
@@ -38,7 +39,7 @@ class Login extends CI_Controller {
 			$sess_array= array();
 			foreach ($result as $key) {
 				$sess_array = array('id' =>$key->idUserAdmin ,'username'=>$key->username,
-					'level'=>$key->level , 'foto' =>$key->foto ,);
+					'level'=>$key->level , 'foto' =>$key->foto ,'saldo' => $key->saldo);
 			$this->session->set_userdata('logged_in',$sess_array);
 			}
 			return true;

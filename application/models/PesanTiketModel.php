@@ -42,4 +42,69 @@ class PesanTiketModel extends CI_Model {
         return $query->result();
         }
 
+    public function getSaldo($id){
+        $query = $this->db->query("select saldo from userAdmin where idUserAdmin= $id");
+  foreach ($query->result() as $key) {
+        $data= $key->saldo;
+      }
+      return $data;
+    }
+
+
+    public function Order($no,$saldo){
+
+   $tgl=date('Y-m-d');
+  $object = array(
+            'noPembelian' => $no,
+            'idUser' => $this->session->userdata('logged_in')['id'],
+            'tanggalPesan' => $tgl,
+            'idJadwal' =>$this->input->post('id'),
+            'totalHarga' => $this->input->post('jumlah'),
+            );
+    $this->db->insert('pembelian',$object);
+    for($i=1;$i<=$this->input->post('kursi');$i++){
+        if ($this->input->post($i)!='') {
+            $object2 = array(
+            'noPembelian' => $no,
+            'noKursi' => $i,
+            );
+    $this->db->insert('detailpembelian',$object2);
+        }
+    }
+    $this->db->where('idUserAdmin',$this->session->userdata('logged_in')['id'] );
+     $object3 = array('saldo' => $saldo);
+        $this->db->update('useradmin', $object3);
+
+
+        $this->load->library('session');
+    $id =  $this->session->userdata('logged_in')['id'];
+    $username =  $this->session->userdata('logged_in')['username'];
+    $foto =  $this->session->userdata('logged_in')['foto'];
+    $level = $this->session->userdata('logged_in')['level'];
+    $this->session->unset_userdata('logged_in');
+    $sess_array = array('saldo' => $saldo,'id' =>$id,'username'=>$username,
+          'level'=>$level , 'foto' =>$foto ,);
+    $this->session->set_userdata('logged_in',$sess_array);
+
+
+    }
+
+    public function cekKursi($id){
+        $this->db->select('noKursi');
+        $this->db->from('detailpembelian');
+        $this->db->join('pembelian', 'pembelian.noPembelian = detailpembelian.noPembelian');
+         $this->db->where('idJadwal', $id);
+          $query = $this->db->get();
+        return $query->result();
+
+    }
+    public function getorder($no){
+       $this->db->select('*');
+        $this->db->from('pembelian');
+         $this->db->where('noPembelian',$no);
+          $query = $this->db->get();
+        return $query->result();
+    }
+
+
 }

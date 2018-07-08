@@ -53,8 +53,7 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
           <li><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
-          <li><a href="#services">Order</a></li>
-          <li><a href="#portfolio">About Us</a></li>
+          <li><a href="<?php echo site_url()?>/ProfilUser/pesan">Order</a></li>
         <?php   if($this->session->userdata('logged_in')) { ?>
           <li class="menu-has-children"><a href=""><?php  echo $this->session->userdata('logged_in')['username'] ?></a>
             <ul>

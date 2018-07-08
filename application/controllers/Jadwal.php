@@ -7,6 +7,7 @@ class Jadwal extends CI_Controller {
 	{
 			$this->load->model('BioskopModel');
 			 $data['daftarFilm'] = $this->BioskopModel->cekJadwal();
+			 $data['jamtayang'] = $this->BioskopModel->cekJam();
 			
 		$this->load->view('user/jadwal', $data);
 	}

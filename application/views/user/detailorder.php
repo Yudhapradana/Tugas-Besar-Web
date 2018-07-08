@@ -22,6 +22,19 @@
 
 
 }
+hr{
+  padding-top: -90px;
+}
+th,td{
+  width: 200px;
+  color: white;
+  border-bottom: 1px solid white;
+  height: 50px;
+  
+}
+th{
+  background-color: grey;
+}
 
 .title{
   
@@ -90,54 +103,47 @@ border:0px;
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+ 
 
 </div>
 </div>
 <div class="col-md-9"> 
 <div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
-<div class="container"> 
-<div class="title"> PROFIL</div><br>
-<div align="left">PENGATURAN PROFIL<hr color="green" width="200px" align="left"></div>
-<div align="left"> 
-    <?php echo form_open_multipart('ProfilUser/update'); ?>
-                <div class="form-group">
-                <label for="">ID </label>
-                <input type="text" class="form-control xx" name="id" value="<?php echo $daftarprofil[0]->idUserAdmin ?>" readonly placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password;?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" value="<?php echo $daftarprofil[0]->nama?>" placeholder="nama" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" name="alamat" value="<?php echo $daftarprofil[0]->alamat?>" placeholder="alamat" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" value="<?php echo $daftarprofil[0]->telepon?>" placeholder="telepon" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="" >Email</label>
-                <input type="text" class="form-control xx" name="email" value="<?php echo $daftarprofil[0]->email?>" placeholder="email" style="border-radius: 0px; background-color:#161616;color: white" >
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="border-radius: 0px;font-size: 14px;">Update My Profil</button>
-  <?php echo form_close(); ?>
-            </div>
-
-</div>
-</div>
-</div>
-
- <div class="container">
+<div class="container">
+<div class="title">Detail Pembelian</div><br>
+<p align="left"><a href="<?php echo site_url()?>/ProfilUser/pesan">Kembali Pilih Film</a></p><br>
+<?php echo form_open('ProfilUser/order'); ?>
+<input type="text" hidden="" name="id" value="<?php echo $datafilm[0]->idJadwal; ?>">
+<input type="text" hidden="" name="kursi" value="<?php echo $datafilm[0]->jumlahKursi; ?>">
+<table>
+<tr>  
+    <th>Judul Film </th>
+    <th>Tanggal</th>
+    <th>Teater</th>
+    <th>Jam</th>
+    <th>Kursi</th>
+    <th>Harga</th>
+</tr>
+<?php     
+$jumlah = 0;
+foreach ($object as $key){ ?>
+<tr>  
+    <td><?php echo $datafilm[0]->judulFilm; ?></td>
+    <td><?php echo $datafilm[0]->tanggalTayang; ?></td>
+    <td>Studio <?php echo $datafilm[0]->namaStudio; ?></td>
+    <td><?php echo $datafilm[0]->jadwalTayang; ?></td>
+    <td>Kursi 
+    <input type="text" name="<?php echo $key ?>" value="<?php echo $key ?>"></td>
+    <td><?php echo $datafilm[0]->harga; $jumlah+=$datafilm[0]->harga; ?></td>
+</tr>
+  
+<?php }?>
+<tr>
+    <td colspan="5"> jumlah </td>
+    <td><input type="text" name="jumlah" value="<?php echo $jumlah ?>"></td>
+  </tr>
+  </table>
+  <input type="submit"><?php echo form_close(); ?>
    <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/bootstrap/js/bootstrap.bundle.min.js"></script>

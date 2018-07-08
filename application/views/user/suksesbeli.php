@@ -22,6 +22,19 @@
 
 
 }
+hr{
+  padding-top: -90px;
+}
+th,td{
+  width: 200px;
+  color: white;
+  border-bottom: 1px solid white;
+  height: 50px;
+  
+}
+th{
+  background-color: grey;
+}
 
 .title{
   
@@ -90,54 +103,25 @@ border:0px;
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
+ 
 
 </div>
 </div>
 <div class="col-md-9"> 
 <div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
-<div class="container"> 
-<div class="title"> PROFIL</div><br>
-<div align="left">PENGATURAN PROFIL<hr color="green" width="200px" align="left"></div>
-<div align="left"> 
-    <?php echo form_open_multipart('ProfilUser/update'); ?>
-                <div class="form-group">
-                <label for="">ID </label>
-                <input type="text" class="form-control xx" name="id" value="<?php echo $daftarprofil[0]->idUserAdmin ?>" readonly placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Username</label>
-                <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password;?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Nama</label>
-                <input type="text" class="form-control" name="nama" value="<?php echo $daftarprofil[0]->nama?>" placeholder="nama" style="border-radius: 0px; background-color: #161616;color: white">
-                </div>
-                <div class="form-group">
-                <label for="">Alamat</label>
-                <input type="text" class="form-control" name="alamat" value="<?php echo $daftarprofil[0]->alamat?>" placeholder="alamat" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="">Telepon</label>
-                <input type="text" class="form-control" name="telepon" value="<?php echo $daftarprofil[0]->telepon?>" placeholder="telepon" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
-                <div class="form-group">
-                <label for="" >Email</label>
-                <input type="text" class="form-control xx" name="email" value="<?php echo $daftarprofil[0]->email?>" placeholder="email" style="border-radius: 0px; background-color:#161616;color: white" >
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="border-radius: 0px;font-size: 14px;">Update My Profil</button>
-  <?php echo form_close(); ?>
-            </div>
-
-</div>
-</div>
-</div>
-
- <div class="container">
+<div class="container">
+<div class="title">Pembelian Sukses</div><br>
+<p align="left"><a href="<?php echo site_url()?>/HomeUser">Beranda</a></p><br>
+<table>
+  <tr>
+    <td>Kode Booking</td>
+    <td><?php echo $databeli[0]->noPembelian; ?></td>
+  </tr>
+  <tr>
+    <td>Sisa Saldo</td>
+    <td><?php echo $this->session->userdata('logged_in')['saldo'];; ?> </td>
+  </tr>
+</table>
    <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery-migrate.min.js"></script>
   <script src="<?php echo base_url()?>assets/user/lib/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -3,8 +3,6 @@
  @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
     @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
     body {
-       padding-top: 20px;
-    
     background-color: rgb(220, 220, 220);
   }
   .list {
@@ -287,8 +285,7 @@
         <ul class="nav-menu">
           <li ><a href="<?php echo site_url()?>/homeUser">Home</a></li>
           <li class="menu-active"><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
-          <li><a href="#services">Order</a></li>
-          <li><a href="#portfolio">About Us</a></li>
+         <li><a href="<?php echo site_url()?>/ProfilUser/pesan">Order</a></li>
         <?php   if($this->session->userdata('logged_in')) { ?>
           <li class="menu-has-children"><a href=""><?php  echo $this->session->userdata('logged_in')['username'] ?></a>
             <ul>
@@ -321,11 +318,16 @@
             <div class="info">
               <h2 class="title" style="color: #17a2b8"><?php echo $key->judulFilm ?></h2>
               <hr style="margin-top: 0px; margin-bottom: 2; margin-left: 10; border: 0;border-top: 2px solid rgba(25, 24, 24, 0.5);"> 
-              <p class="desc"  style="color: #17a2b8">Tanggal : Rp <?php echo $key->tanggalTayang ?> </p> 
+              <p class="desc"  style="color: #17a2b8">Tanggal : <?php echo $key->tanggalTayang ?> </p> 
               <p class="desc"  style="color: #17a2b8">HTM : Rp <?php echo $key->harga ?> </p>
               <p class="desc"  style="color: #17a2b8"><?php echo $key->genre?> | <?php echo $key->durasi ?> MENIT</p>
               <div align="right">
-               &nbsp;&nbsp;<button  type="button" class="btn tombol" style=" border-radius: 0;">Cek Jam Tayang</button></div>
+               &nbsp;&nbsp;<?php foreach ($jamtayang as $row) {
+
+                if( $key->noFilm == $row->noFilm && $key->idStudio == $row->idStudio && $key->tanggalTayang == $row->tanggalTayang ){
+                 ?><button  type="button" class="btn tombol" style=" border-radius: 0;"><?php echo $row->jadwalTayang ?></button>
+               <?php }}?>
+               </div>
             </div>
             
           </li>

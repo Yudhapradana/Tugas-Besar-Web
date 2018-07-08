@@ -34,8 +34,8 @@ th,td{
 }
 
 .btn{
-  width:50px;
-  margin-bottom: 50px
+  width:53px;
+  margin-bottom: 30px
 
 }
 
@@ -98,7 +98,7 @@ border:0px;
 <div style="background: black; color: white; height:1300px; text-align: left; min-height: 1000px; margin-right: -10px;">
     <img src="<?php echo base_url()?>assets/upload/<?php echo $this->session->userdata('logged_in')['foto'] ?>" alt="" width="100px" height="130px" style="margin-left: 50px;margin-top: 20px"><br><br>
     <div align="center" class="nama"> malak diana dewi<br>malakdiana@gmail.com</div><br>
-    <div class="saldo">&nbsp;SALDO &nbsp;&nbsp;: 0 </div><br>
+    <div class="saldo">SALDO&nbsp;&nbsp;&nbsp;: Rp &nbsp;<?php echo $this->session->userdata('logged_in')['saldo'] ?></div><br>
     <div class="ket" align="center">HARAP ISI BALANCE/SALDO ANDA. PENGISIAN DAPAT DILAKUKAN DI SEMUA CABANG INI CINEMA </div><br>
    <hr color="green"  style="margin-bottom:1px">
     <a href="<?php echo site_url()?>/profiluser/profil"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
@@ -114,7 +114,7 @@ border:0px;
 <div style="background:#202120; color: white; height: auto; text-align: center; margin-left: -20px;min-height: 1000px"><br>
 <div class="container">
 <div class="title">Black Panter</div><br>
-<p align="left"><a href="">Kembali Pilih Film</a></p><br>
+<p align="left"><a href="<?php echo site_url()?>/ProfilUser/pesan">Kembali Pilih Film</a></p><br>
         <div class="row" align="left">
           <div class="col-md-3">
             <img src="<?php echo base_url()?>assets/upload/<?php echo $datafilm[0]->foto ?>" alt="" width="200px" height="250px">
@@ -124,7 +124,7 @@ border:0px;
             <table>
               <tr>
                 <td>Teater </td>
-                <td>Studi<?php echo $datafilm[0]->namaStudio ?></td>
+                <td>Studio<?php echo $datafilm[0]->namaStudio ?></td>
                 <td>Jam Show </td>
                 <td><?php echo $datafilm[0]->jadwalTayang ?></td>
               </tr>
@@ -152,17 +152,29 @@ border:0px;
 
 
 <?php 
-echo form_open('profiluser/pilihkursi2/10');
 $kursi=$datafilm[0]->jumlahKursi;
-for($i=1;$i<=$kursi ;$i++){ ?>
-<?php if ($i==45){ ?>
-<input  class="btn" style="margin-bottom: 50px; background: red">
+echo form_open('profiluser/pilihkursi2/'.$kursi);
+$x=false;
+for($i=1;$i<=$kursi ;$i++){ 
+ foreach ($datakursi as $key) {
+  if ($i == $key->noKursi){ 
+    $x=true;
+    break;
+  }else{
+    $x=false;
+  
+  }
+  }
+    if ($x==true){?>
+
+      <input  class="btn" style="margin-bottom: 30px; background: red">
 <?php }else{?>
-<input name="<?php echo $i?>" class="btn" value="<?php echo "$i"; ?>" id="blue<?php echo $i?>" class="btn" onclick="document.getElementById('blue<?php echo $i?>').style.background = 'blue';value='pilih'" style="">
+      <input name="<?php echo $i?>" class="btn" value="<?php echo "$i"; ?>" id="blue<?php echo $i?>" readonly class="btn" onclick="document.getElementById('blue<?php echo $i?>').style.background = 'blue';value='ok'" style="">
 <?php }} ?><br>
+<input type="text" hidden="" name="id" value="<?php echo $datafilm[0]->idJadwal ?>">
 <input type="submit" class="btn btn-primary" style="border-radius: 0; width: 200px">
 <?php echo form_close(); ?>
-  </div>        
+  </div>       
 </div>
 </div>
 </div>
