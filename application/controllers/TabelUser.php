@@ -35,7 +35,7 @@ class TabelUser extends CI_Controller {
         $this->load->model('ModelTabelAdmin');
 $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->load->view('header', $data);
-        $data['daftarUser'] = $this->ModelTabelUser->getAllUser();
+        $data['daftarUser'] = $this->ModelTabelUser->getAllUser2();
         $this->load->view('tabelUser', $data);
 	}
 

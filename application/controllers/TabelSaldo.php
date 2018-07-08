@@ -29,6 +29,7 @@ class TabelSaldo extends CI_Controller {
 	{
 		$this->load->model('ModelTabelAdmin');
 		$this->load->model('ModelSaldo');
+		$this->load->model('ModelTabelUser');
 		$session_data=$this->session->userdata('logged_in');
         $data['username'] = $session_data['username'];
         $data['id'] = $session_data['id'];
@@ -36,6 +37,7 @@ class TabelSaldo extends CI_Controller {
         $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $this->load->view('header', $data);
 		$data['daftarSaldo'] = $this->ModelSaldo->getAllSaldo();
+        $data['user_list'] = $this->ModelTabelUser->getAllUser2();
         $this->load->view('tabelSaldo', $data);
 	}
 
@@ -49,6 +51,9 @@ class TabelSaldo extends CI_Controller {
         $id= $session_data['id'];
         $data['foto'] = $this->ModelTabelAdmin->getDataProfil($id);
         $data1['daftarSaldo'] = $this->ModelSaldo->getSaldo1();
+        $this->load->model('ModelTabelUser');
+         $data['user_list'] = $this->ModelTabelUser->getAllUser2();
+
         $this->load->view('header', $data);
         $this->load->view('tabelSaldo', $data1);
 	}
@@ -64,9 +69,9 @@ class TabelSaldo extends CI_Controller {
 	public function delete($id)
     {
 
-        $this->load->model('TabelSaldo');
+        $this->load->model('ModelSaldo');
         // $id = $this->input->post('idAdmin'); 
-        $this->TabelSaldo->delete($id);
+        $this->ModelSaldo->delete($id);
         $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('TabelSaldo/daftarSaldo', 'refresh');
     }

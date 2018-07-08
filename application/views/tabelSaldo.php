@@ -78,14 +78,17 @@
                     <div class="modal-body">
                             <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Username</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" name="username" placeholder="username">
-                                </div>
+                                 <select class="form-control" name="username">
+                                <option  value="">Select User</option>                   
+                                <?php foreach($user_list as $row) { ?>
+                                <option value="<?php echo $row->idUserAdmin;?>"><?php echo $row->username;?></option>
+                                <?php } ?>
+                        </select>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Tanggal Transaksi</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" name="tanggalBeli" value="" placeholder="00-00-0000" >
+                                    <input type="date" class="form-control" name="tanggalBeli" value="" placeholder="00-00-0000" >
                                 </div>
                             </div>
                             <div class="form-group">

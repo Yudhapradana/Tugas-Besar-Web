@@ -13,13 +13,23 @@ class ModelSaldo extends CI_Model {
         $tgl = $this->input->post('tanggalBeli');
         $tgl2 = date_format(new DateTime($tgl), "Y-m-d");
         $saldo1 = $this->input->post('jumlah');
+        $id = $this->input->post('username');
+         $query = $this->db->query("select saldo from useradmin where idUserAdmin = $id");
+         $data=0;
+  foreach ($query->result() as $key) {
+        $data= $key->saldo;
+      }
+      $saldo2= $saldo1+$data;
+
 		$object = array('username' => $this->input->post('username'), 'tanggalBeli'=>$tgl2, 'jumlah'=>$saldo1, );
         $this->db->insert('saldo', $object);
-        $username= $this->input->post('username');
-        $saldo2= $this->db->query("SELECT saldo FROM useradmin where username='$username'");
-        $object2 = array('saldo'=>$saldo1+$saldo2[0]['saldo']);
-        $this->db->where('username', $username);
+
+
+
+$object2 = array('saldo'=>$saldo2, );
+        $this->db->where('idUserAdmin', $id);
         $this->db->update('useradmin', $object2);
+       
 	}
 
 	public function getSaldo($id)

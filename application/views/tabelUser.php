@@ -17,7 +17,7 @@
                         <h3 class="text-themecolor m-b-0 m-t-0">Profile</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item active">Tabel User</li>
                         </ol>
                     </div>
                     <div class="col-md-6 col-4 align-self-center">
@@ -44,6 +44,8 @@
                                     <td><b>Alamat</b></td>
                                     <td><b>Telepon</b></td>
                                     <td><b>Email</b></td>
+                                    <td><b>Saldo</b></td>
+
                                     <td><b>Aksi</b></td>
                                 </tr>
                             </thead>
@@ -56,6 +58,8 @@
                                         <td><?php echo $key->alamat ?></td>
                                         <td><?php echo $key->telepon ?></td>
                                         <td><?php echo $key->email ?></td>
+                                        <td><?php echo $key->saldo ?></td>
+
                                         <td>
                                             <a href="<?php echo site_url()?>/TabelUser/update/<?php echo $key->idUserAdmin; ?>"><button class="btn btn-secondary">Update</button></a>
                                             <a href="<?php echo site_url()?>/TabelUser/deleteUser/<?php echo $key->idUserAdmin; ?>" onclick="return confirm('Are you sure to delete this data permanently?');"><button class="btn btn-warning">Delete</button></a>
