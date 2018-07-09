@@ -283,18 +283,19 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li ><a href="<?php echo site_url()?>/homeUser">Home</a></li>
-          <li class="menu-active"><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
-         <li><a href="<?php echo site_url()?>/ProfilUser/pesan">Order</a></li>
+          <li class="menu-active"><a href="<?php echo site_url()?>/HomeUser">Home</a></li>
+          <li><a href="<?php echo site_url()?>/jadwal">Schedule</a></li>
+          <li><a href="<?php echo site_url()?>/ProfilUser/pesan">Order</a></li>
         <?php   if($this->session->userdata('logged_in')) { ?>
           <li class="menu-has-children"><a href=""><?php  echo $this->session->userdata('logged_in')['username'] ?></a>
             <ul>
-              <li><a href="#">Profil</a></li>
+              <li><a href="<?php echo site_url()?>/profiluser/profil/">Profil</a></li>
               <li><a href="<?php echo site_url()?>/login/logout">Logout</a></li>
           </li>
           <?php   }else{ ?>
           <li><a href="<?php echo site_url()?>/login">login</a></li>
           <?php   } ?>
+
         </ul>
       </nav>
     </div>

@@ -95,7 +95,7 @@ border:0px;
 <div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding-left: 90px;  height: auto;top: 0; left: 0; overflow-y:auto; min-height: 1000px; overflow-x: hidden;">
 <div class="row">
 <div class="col-md-2"> 
-<div style="background: black; color: white; height:1300px; text-align: left; min-height: 1000px; margin-right: -10px;">
+<div style="background: black; color: white; height:1280px; text-align: left; min-height: 1000px; margin-right: -10px;">
     <img src="<?php echo base_url()?>assets/upload/<?php echo $this->session->userdata('logged_in')['foto'] ?>" alt="" width="100px" height="130px" style="margin-left: 50px;margin-top: 20px"><br><br>
     <div align="center" class="nama"> malak diana dewi<br>malakdiana@gmail.com</div><br>
     <div class="saldo">SALDO&nbsp;&nbsp;&nbsp;: Rp &nbsp;<?php echo $this->session->userdata('logged_in')['saldo'] ?></div><br>
