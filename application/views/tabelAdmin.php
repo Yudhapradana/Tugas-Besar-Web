@@ -124,16 +124,7 @@
                                     <input type="text" class="form-control" name="saldo" placeholder="0">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 col-sm-2 control-label">Role</label>
-                                <div class="col-lg-10">
-                                    <select name="level" class="form-control">
-                                        <option value="">---</option>
-                                        <option value="admin">Super Admin</option>
-                                        <option value="user">Admin</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
