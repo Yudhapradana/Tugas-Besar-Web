@@ -108,10 +108,7 @@ border:0px;
                 <label for="">Username</label>
                 <input type="text" class="form-control xx" name="username" value="<?php echo $daftarprofil[0]->username ?>" placeholder="username" style="border-radius: 0px; background-color: #161616;color: white">
                 </div>
-                <div class="form-group">
-                <label for="">Password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $daftarprofil[0]->password;?>" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
-                </div>
+               
                 <div class="form-group">
                 <label for="">Nama</label>
                 <input type="text" class="form-control" name="nama" value="<?php echo $daftarprofil[0]->nama?>" placeholder="nama" style="border-radius: 0px; background-color: #161616;color: white">
@@ -133,7 +130,21 @@ border:0px;
   <?php echo form_close(); ?>
             </div>
 
+
+
+
 </div>
+<div class="container">
+<div align="left">UBAH PASSWORD<hr color="green" width="200px" align="left"></div>
+<div align="left">
+  
+ <div class="form-group">
+  <?php echo form_open_multipart('ProfilUser/updatePass'); ?>
+                <label for="">Password BARU</label>
+                <input type="password" class="form-control" name="password" value="" placeholder="password" style="border-radius: 0px; background-color: #161616;color: white" >
+                </div>
+                <button type="submit" class="btn btn-primary" style="border-radius: 0px;font-size: 14px;">Update Password</button>
+  <?php echo form_close(); ?>
 </div>
 </div>
 

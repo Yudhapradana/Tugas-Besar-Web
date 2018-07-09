@@ -86,7 +86,7 @@
                 <br><br><br><br><br><br>
                 <p><font size="5">Drama | Action</font></p>
                 <h2>Black Panther</h2>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Ticket</a>
+             
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@
               <div class="carousel-content">
                 <br><br><br><br><br><br>
                 <p><font size="5">Drama | Action</font></p>
-                <h2>Avengers : Infinity War</h2><a href="#featured-services" class="btn-get-started scrollto">Get Ticket</a>
+                <h2>Avengers : Infinity War</h2>
               </div>
             </div>
           </div>

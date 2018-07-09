@@ -73,16 +73,26 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('email', 'EMAIL', 'trim|required');
 		$this->form_validation->set_rules('username', 'USERNAME', 'trim|required');
 		$this->form_validation->set_rules('password', 'PASSWORD', 'trim|required');
-	
 		if ($this->form_validation->run()==FALSE) {
 			$this->load->view('register');
 		}else{
+			$config['upload_path'] = './assets/upload/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size']= 1000000000;
+			$config['max_width']= 10240;
+			$config['max_height']=7680;
+			$this->load->library('upload', $config);
+			if(!$this->upload->do_upload('foto')){
+				$error= array('error'=>$this->upload->display_error());
+				$this->load->view('register',$error);
+			}else{
 			$this->LoginModel->insertUser();
 				echo '<script>alert("sukses mendaftar")</script>';
 
 			$this->load->view('login');
 		}
 	}
+}
 }
 
 /* End of file login.php */

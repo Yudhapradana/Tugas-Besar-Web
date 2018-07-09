@@ -24,6 +24,13 @@ class ProfilUser extends CI_Controller {
             $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('ProfilUser/profil', 'refresh');
   }
+  public function updatePass(){
+    $this->load->model('ModelProfilUser');
+    $this->ModelProfilUser->updatePass();
+           
+            $this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil diperbarui <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            redirect('ProfilUser/profil', 'refresh');
+  }
   function autoId(){
   $query = $this->db->query('select idpembelian from pembelian order by idpembelian desc limit 1');
   foreach ($query->result() as $key) {

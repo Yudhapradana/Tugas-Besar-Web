@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ModelProfilUser extends CI_Model {
 	public function update(){
-	$password= $this->input->post('password');
+	
        
         $id= $this->input->post('id');
         $level = "user";
@@ -12,6 +12,14 @@ class ModelProfilUser extends CI_Model {
         $this->db->where('idUserAdmin', $id);
         $this->db->update('useradmin', $object);
 	}
+    public function updatePass(){
+       $password= $this->input->post('password'); 
+       $pass = md5($password);
+        $id= $this->session->userdata('logged_in')['id'];
+        $object = array('password' => $pass );
+        $this->db->where('idUserAdmin', $id);
+        $this->db->update('useradmin', $object);
+    }
         public function getFilmById($film){
         $this->db->select('*');
         $this->db->from('film');

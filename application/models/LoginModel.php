@@ -28,6 +28,7 @@ class LoginModel extends CI_Model {
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
 			'password' => $pass,
+			'foto' =>$this->upload->data('file_name'),
 			'level'=> 'user',
 
 			);

@@ -36,7 +36,7 @@
 					<span class="login100-form-title p-b-34 p-t-27">
 						REGISTER
 					</span>
-<?php echo form_open('login/daftar');?>
+<?php echo form_open_multipart('login/daftar');?>
 <?php echo validation_errors(); ?>
 					<div class="wrap-input100 validate-input" data-validate = "Enter name">
 						<input class="input100" type="text" name="nama" placeholder="Name">
@@ -54,6 +54,7 @@
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf200;"></span>
 					</div>
+					
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -62,6 +63,10 @@
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Email">
+						 <input type="file" class="input100" name="foto" value="" placeholder="upload foto" >
+						<span class="focus-input100" data-placeholder="&#xf180;"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
