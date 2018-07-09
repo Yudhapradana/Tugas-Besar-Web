@@ -44,7 +44,7 @@
         <div class="form-group">
               <label class="col-lg-2 col-sm-2 control-label">Film</label>
                 <div class="col-lg-12">
-                <input type="text" name="id" id="id" hidden="">
+               
                         <select class="form-control" name="film" id="film" >
                                  <?php foreach($film_list as $row) { 
                                     $film=$row->noFilm;
@@ -162,7 +162,7 @@
     <script src="<?php echo base_url()?>assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url()?>assets/js/custom.min.js"></script>
-    <script src="<?php echo base_url()?>assets/js/flot-data.js"></script>
+  
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
