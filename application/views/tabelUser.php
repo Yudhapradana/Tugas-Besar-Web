@@ -77,7 +77,7 @@
                     <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                     <h4 class="modal-title">Tambah User</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo site_url('tabelUser/addUser')?>" method="post" enctype="multipart/form-data" role="form">
+                <form class="form-horizontal" action="<?php echo site_url('tabelAdmin2/addUser')?>" method="post" enctype="multipart/form-data" role="form">
                     <div class="modal-body">
                             <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Username</label>
@@ -126,16 +126,7 @@
                                     <input type="text" class="form-control" name="saldo" placeholder="0">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-lg-2 col-sm-2 control-label">Role</label>
-                                <div class="col-lg-10">
-                                    <select name="level" class="form-control">
-                                        <option value="">---</option>
-                                        <option value="admin">Super Admin</option>
-                                        <option value="user">Admin</option>
-                                    </select>
-                                </div>
-                            </div>
+                           
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>

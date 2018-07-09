@@ -74,7 +74,8 @@
                     <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                     <h4 class="modal-title">Tambah Admin</h4>
                 </div>
-                <form class="form-horizontal" action="<?php echo site_url('tabelAdmin/addAdmin')?>" method="post" enctype="multipart/form-data" role="form">
+                <?php echo form_open_multipart('tabelAdmin2/addAdmin') ;?>
+                <!-- <form class="form-horizontal" action="<?php// echo site_url('tabelAdmin/addAdmin')?>" method="post" enctype="multipart/form-data" role="form"> -->
                     <div class="modal-body">
                             <div class="form-group">
                                 <label class="col-lg-2 col-sm-2 control-label">Username</label>
@@ -130,7 +131,7 @@
                             <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
                             <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>
                         </div>
-                    </form>
+                   <?php echo form_close(); ?>
                 </div>
             </div>
         </div>

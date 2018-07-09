@@ -91,8 +91,8 @@ border:0px;
    <a href="<?php echo site_url()?>/profiluser/daftarPembelian">  <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button></a><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
 
-</div>
-</div>
+
+</div></div>
 <div class="col-md-9"> 
 <div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
 <div class="container"> 
