@@ -22,19 +22,6 @@
 
 
 }
-hr{
-  padding-top: -90px;
-}
-th,td{
-  width: 200px;
-  color: white;
-  border-bottom: 1px solid white;
-  height: 50px;
-  
-}
-th{
-  background-color: grey;
-}
 
 .title{
   
@@ -73,21 +60,34 @@ border:0px;
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+ 
   <!-- Favicons -->
   <link href="<?php echo base_url()?>assets/user/img/favicon.png" rel="icon">
   <link href="<?php echo base_url()?>assets/user/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
   <link href="<?php echo base_url()?>assets/user/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
   <link href="<?php echo base_url()?>assets/user/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/user/lib/animate/animate.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/user/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/user/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="<?php echo base_url()?>assets/user/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-  <link href="<?php echo base_url()?>assets/user/css/style.css" rel="stylesheet">
-</head>
 
+  <!-- Main Stylesheet File -->
+  <link href="<?php echo base_url()?>assets/user/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: BizPage
+    Theme URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
 <body style="overflow-y:auto;">
 <div style="background: url(<?php echo base_url()?>assets/user/img/call-to-action-bg.jpg); padding-left: 90px;  height: auto;top: 0; left: 0; overflow-y:auto; min-height: 1000px; overflow-x: hidden;">
 <div class="row">
@@ -97,70 +97,13 @@ border:0px;
     <div align="center" class="nama"> malak diana dewi<br>malakdiana@gmail.com</div><br>
     <div class="saldo">SALDO&nbsp;&nbsp;&nbsp;: Rp &nbsp;<?php echo $this->session->userdata('logged_in')['saldo'] ?></div><br>
     <div class="ket" align="center">HARAP ISI BALANCE/SALDO ANDA. PENGISIAN DAPAT DILAKUKAN DI SEMUA CABANG INI CINEMA </div><br>
-  <hr color="green"  style="margin-bottom:1px">
+   <hr color="green"  style="margin-bottom:1px">
     <a href="<?php echo site_url()?>/profiluser/profil"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profil </button> <hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
     <a href="<?php echo site_url()?>/profiluser/pesan">
     <button class="tombol">&nbsp;&nbsp;<i class="fa fa-play"></i>&nbsp;&nbsp;&nbsp;Pesan Tiket</button><hr color="green"  style="margin-bottom:1px;margin-top: 1px"></a>
    <a href="<?php echo site_url()?>/profiluser/daftarPembelian">  <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Daftar Pesanan</button></a><hr color="green" style="margin-bottom:1px;margin-top: 1px">
+   <a href="<?php echo site_url()?>/profiluser/tambahsaldo">  <button class="tombol">&nbsp;&nbsp;<i class="fa fa-table"></i>&nbsp;&nbsp;&nbsp;Tambah Saldo</button></a><hr color="green" style="margin-bottom:1px;margin-top: 1px">
     <a href="<?php echo site_url()?>/login/logout"><button class="tombol">&nbsp;&nbsp;<i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Keluar</button></a><hr color="green"  style="margin-bottom:1px;margin-top: 1px">
 
 
-</div>
-</div>
-<div class="col-md-9"> 
-<div style="background:#202120; color: white; height: 241px; text-align: center; margin-left: -20px;min-height: 1000px"><br>
-<div class="container">
-<div class="title">Detail Pembelian</div><br>
-<p align="left"><a href="<?php echo site_url()?>/ProfilUser/pesan">Kembali Pilih Film</a></p><br>
-<?php echo form_open('ProfilUser/order'); ?>
-<input type="text" hidden="" name="id" value="<?php echo $datafilm[0]->idJadwal; ?>">
-<input type="text" hidden="" name="kursi" value="<?php echo $datafilm[0]->jumlahKursi; ?>">
-<table>
-<tr>  
-    <th>Judul Film </th>
-    <th>Tanggal</th>
-    <th>Teater</th>
-    <th>Jam</th>
-    <th>Kursi</th>
-    <th>Harga</th>
-</tr>
-<?php     
-$jumlah = 0;
-foreach ($object as $key){ ?>
-<tr>  
-    <td><?php echo $datafilm[0]->judulFilm; ?></td>
-    <td><?php echo $datafilm[0]->tanggalTayang; ?></td>
-    <td>Studio <?php echo $datafilm[0]->namaStudio; ?></td>
-    <td><?php echo $datafilm[0]->jadwalTayang; ?></td>
-    <td>Kursi<input type="text" name="<?php echo $key ?>" value="<?php echo $key ?>"></td>
-    <td><?php echo $datafilm[0]->harga; $jumlah+=$datafilm[0]->harga; ?></td>
-</tr>
-  
-<?php }?>
-<tr>
-    <td colspan="5"> jumlah </td>
-    <td><input type="text" name="jumlah" value="<?php echo $jumlah ?>"></td>
-  </tr>
-  </table>
-  <input type="submit"><?php echo form_close(); ?>
-   <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/easing/easing.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/superfish/hoverIntent.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/superfish/superfish.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/wow/wow.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/waypoints/waypoints.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/counterup/counterup.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/lightbox/js/lightbox.min.js"></script>
-  <script src="<?php echo base_url()?>assets/user/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="<?php echo base_url()?>assets/user/contactform/contactform.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="<?php echo base_url()?>assets/user/js/main.js"></script>
-
-</body>
-</html>
+</div></div>

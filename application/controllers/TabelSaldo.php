@@ -41,6 +41,12 @@ class TabelSaldo extends CI_Controller {
         $this->load->view('tabelSaldo', $data);
 	}
 
+public function konfirmasi(){
+	$this->load->model('ModelSaldo');
+		$this->ModelSaldo->konfirmasi();
+		$this->session->set_flashdata('notif','<div class="alert alert-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('TabelSaldo/', 'refresh');
+}
 	public function daftarSaldo()
 	{
 		$this->load->model('ModelTabelAdmin');

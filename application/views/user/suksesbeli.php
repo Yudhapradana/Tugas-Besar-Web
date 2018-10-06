@@ -113,11 +113,14 @@ border:0px;
 <div class="container">
 <div class="title">Pembelian Sukses</div><br>
 <p align="left"><a href="<?php echo site_url()?>/HomeUser">Beranda</a></p><br>
+  <?php $nama= $databeli[0]->noPembelian.'.png';  ?>
+ <img style="width: 100px;" src="<?php echo base_url().'assets/images/'.$nama?>"></td>
 <table>
   <tr>
     <td>Kode Booking</td>
     <td><?php echo $databeli[0]->noPembelian; ?></td>
   </tr>
+
   <tr>
     <td>Sisa Saldo</td>
     <td><?php echo $this->session->userdata('logged_in')['saldo'];; ?> </td>

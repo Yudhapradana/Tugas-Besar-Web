@@ -190,7 +190,7 @@
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
               <figure>
-               <a href="<?php echo base_url()?>assets/user/img/gallery1.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+               <a href="<?php echo base_url()?>assets/user/img/gallery1.jpg" data-lightbox="portfolio" class="link-preview" title="Preview">
                 <img src="<?php echo base_url()?>assets/user/img/gallery1.jpg" class="img-fluid" alt="">
                </a>
                 </figure>
@@ -200,7 +200,7 @@
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="member">
                <figure>
-               <a href="<?php echo base_url()?>assets/user/img/gallery2.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+               <a href="<?php echo base_url()?>assets/user/img/gallery2.jpg" data-lightbox="portfolio" class="link-preview" title="Preview">
                 <img src="<?php echo base_url()?>assets/user/img/gallery2.jpg" class="img-fluid" alt="" >
                </a>
                 </figure>
@@ -210,7 +210,7 @@
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="member">
                <figure>
-               <a href="<?php echo base_url()?>assets/user/img/gallery3.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+               <a href="<?php echo base_url()?>assets/user/img/gallery3.jpg" data-lightbox="portfolio" class="link-preview" title="Preview">
                 <img src="<?php echo base_url()?>assets/user/img/gallery3.jpg" class="img-fluid" alt="">
                </a>
                 </figure>
@@ -219,7 +219,7 @@
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="member">
                 <figure>
-               <a href="<?php echo base_url()?>assets/user/img/gallery4.jpg" data-lightbox="portfolio"class="link-preview" title="Preview">
+               <a href="<?php echo base_url()?>assets/user/img/gallery4.jpg" data-lightbox="portfolio" class="link-preview" title="Preview">
                 <img src="<?php echo base_url()?>assets/user/img/gallery4.jpg" class="img-fluid" alt="">
                </a>
                 </figure>

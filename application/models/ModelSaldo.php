@@ -8,6 +8,26 @@ class ModelSaldo extends CI_Model {
 		//Do your magic here
 	}
 	
+    public function konfirmasi(){
+        $id = $this->input->post('id');
+        $idUser = $this->input->post('nama');
+        $saldo1 = $this->input->post('jumlah');
+        $query = $this->db->query("select saldo from useradmin where idUserAdmin = $idUser");
+        $data=0;
+        foreach ($query->result() as $key) {
+        $data= $key->saldo;
+         }
+         $saldo2= $saldo1+$data;
+          $object = array('saldo' => $saldo2 );
+        $this->db->where('idUserAdmin', $idUser);
+        $this->db->update('useradmin', $object);
+        $status = "dikonfirmasi";
+        $object2 = array('status' => $status );
+        $this->db->where('idTransaksi', $id);
+        $this->db->update('saldo', $object2);
+
+
+    }
 	public function insertSaldo()
 	{
         $tgl = $this->input->post('tanggalBeli');
